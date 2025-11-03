@@ -3,7 +3,7 @@ defaultAppearance = "light"
 autoSwitchAppearance = true
 enableA11y = false
 enableSearch = true
-enableCodeCopy = false
+enableCodeCopy = true
 replyByEmail = false
 disableImageOptimization = false
 disableImageOptimizationMD = false
@@ -12,14 +12,14 @@ hotlinkFeatureImage = false
 fingerprintAlgorithm = "sha512"
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v11.next.forgejo.org"
-firebase = { }
-fathomAnalytics = { }
-umamiAnalytics = { }
-selineAnalytics = { }
-buymeacoffee = { }
-verification = { }
-rssnext = { }
-advertisement = { }
+firebase = {}
+fathomAnalytics = {}
+umamiAnalytics = {}
+selineAnalytics = {}
+buymeacoffee = {}
+verification = {}
+rssnext = {}
+advertisement = {}
 
 [header]
 layout = "basic"
@@ -32,15 +32,16 @@ showAppearanceSwitcher = true
 showScrollToTop = true
 
 [homepage]
-layout = "card"
+layout = "profile"
 showRecent = false
-showRecentItems = 5
+showRecentItems = 6
 showMoreLink = false
 showMoreLinkDest = "/posts/"
-cardView = false
-cardViewScreenWidth = false
-layoutBackgroundBlur = false
+cardView = true
+cardViewScreenWidth = true
+layoutBackgroundBlur = true
 disableHeroImageFilter = false
+homepageImage = "homepage-feature.jpg"
 
 [article]
 showDate = true
@@ -48,7 +49,7 @@ showViews = false
 showLikes = false
 showDateOnlyInArticle = false
 showDateUpdated = false
-showAuthor = true
+showAuthor = false
 showHero = false
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = true
@@ -60,7 +61,7 @@ seriesOpened = false
 showHeadingAnchors = true
 showPagination = true
 invertPagination = false
-showReadingTime = true
+showReadingTime = false
 showTableOfContents = false
 showTaxonomies = false
 showCategoryOnly = false
@@ -77,15 +78,15 @@ showSummary = false
 showViews = false
 showLikes = false
 showTableOfContents = false
-showCards = false
+showCards = true
 orderByWeight = false
-groupByYear = true
-cardView = false
+groupByYear = false
+cardView = true
 cardViewScreenWidth = false
 constrainItemsWidth = false
 
 [sitemap]
-excludedKinds = [ "taxonomy", "term" ]
+excludedKinds = ["taxonomy", "term"]
 
 [taxonomy]
 showTermCount = true

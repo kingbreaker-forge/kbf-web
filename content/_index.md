@@ -1,7 +1,4 @@
-+++
-date = '2025-11-03T20:15:23Z'
-draft = true
-title = ''
-+++
+---
+---
 
-hello
+{{< list limit=6 title="" where="Type" value="inventory">}}
