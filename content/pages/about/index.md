@@ -1,0 +1,26 @@
+---
+title: "About Kingbreaker Forge"
+date: 2025-11-03
+draft: false
+description: "a description"
+tags: ["example", "tag"]
+
+params:
+    custom_css: "about/custom.css"
+---
+
+<style>
+img#background-image {
+    object-fit: cover;
+    object-position: center top;
+}
+</style>
+
+ an example to get you started
+# This is a heading
+## This is a subheading
+### This is a subsubheading
+#### This is a subsubsubheading
+This is a paragraph with **bold** and *italic* text.
+Check more at [Blowfish documentation](https://blowfish.page/)
+undefined
