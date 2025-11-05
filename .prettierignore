@@ -1,3 +1,7 @@
 dist
 node_modules
 coverage
+
+# Ignore JSON and JSONC files, those are handled by VSCode's built-in formatter
+**/*.json
+**/*.jsonc

@@ -1,12 +1,14 @@
-import vikeVue from "vike-vue/config";
-import { Config } from "vike/types";
-
-import rootLayout from "./rootLayout.vue";
+import vikeVue from 'vike-vue/config';
+import { Config } from 'vike/types';
 
 export default {
-    Layout: rootLayout,
+  ssr: true,
 
-    ssr: true,
+  prerender: {
+    enable: true,
+    partial: false,
+    keepDistServer: false,
+  },
 
-    extends: [vikeVue]
+  extends: [vikeVue],
 } satisfies Config;

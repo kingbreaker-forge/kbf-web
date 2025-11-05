@@ -1,58 +1,67 @@
 {
-    // Use workspace TypeScript for IntelliSense everywhere (incl. Volar Take Over)
-    "typescript.tsdk": "node_modules/typescript/lib",
-    // Volar Take Over Mode: let Volar power TS/JS intelligence
-    "volar.takeOverMode.enabled": true,
-    // Formatting
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    // Explicit language formatter routing to Prettier
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[vue]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[mdx]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    // ESLint: run on save, fix with Prettier where appropriate
-    "eslint.format.enable": false,
-    "eslint.lintTask.enable": true,
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "json",
-        "jsonc",
-        "markdown",
-        "mdx",
-        "yaml"
-    ],
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit",
-        "source.organizeImports": "never" // we let ESLint/Prettier handle style; you can flip to "explicit" if desired
-    },
-    // MDX extension: enable language features
-    "mdx.experimentalLanguageService": true,
-    // Stylelint (optional, only if you add Stylelint config below)
-    "stylelint.validate": [
-        "css",
-        "scss",
-        "vue"
-    ],
-    // QoL
-    "files.eol": "\n",
-    "files.insertFinalNewline": true
+  // Use workspace TypeScript for IntelliSense everywhere (incl. Volar Take Over)
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // Formatting
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Explicit language formatter routing to Prettier
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ESLint: run on save, fix with Prettier where appropriate
+  "eslint.format.enable": false,
+  "eslint.lintTask.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "json",
+    "jsonc",
+    "markdown",
+    "mdx",
+    "yaml"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never" // we let ESLint/Prettier handle style; you can flip to "explicit" if desired
+  },
+  // MDX extension: enable language features
+  "mdx.experimentalLanguageService": true,
+  // Stylelint (optional, only if you add Stylelint config below)
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "vue"
+  ],
+
+  // QoL
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+
+  // JSON formatting: use built-in JSON formatter, keep empty lines
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "json.format.keepLines": true,
+  "jsonc.format.keepLines": true,
 }
