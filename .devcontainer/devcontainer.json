@@ -3,15 +3,7 @@
         "dockerfile": "./Containerfile",
         "context": "."
     },
-    "forwardPorts": [
-        1313
-    ],
-    "portsAttributes": {
-        "1313": {
-            "label": "Hugo live server",
-            "onAutoForward": "notify"
-        }
-    },
+    "updateContentCommand": "npm install",
     "customizations": {
         // Configure properties specific to VS Code.
         "vscode": {
