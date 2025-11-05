@@ -1,34 +1,32 @@
 // eslint.config.js
-import js from '@eslint/js';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
-import vuePlugin from 'eslint-plugin-vue';
-import markdownPlugin from '@eslint/markdown';
-import * as mdxPlugin from 'eslint-plugin-mdx';
-import jsoncPlugin from 'eslint-plugin-jsonc';
-import ymlPlugin from 'eslint-plugin-yml';
 import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import markdownPlugin from '@eslint/markdown';
+import jsoncPlugin from 'eslint-plugin-jsonc';
+import * as mdxPlugin from 'eslint-plugin-mdx';
+import vuePlugin from 'eslint-plugin-vue';
+import yamlPlugin from 'eslint-plugin-yml';
+import globals from 'globals';
+import jsoncParser from 'jsonc-eslint-parser';
+import tseslint from 'typescript-eslint';
+import vueParser from 'vue-eslint-parser';
+import yamlParser from 'yaml-eslint-parser';
 
 const compat = new FlatCompat();
 
 export default [
   // Base
   {
-    ignores: [
-      'dist/',
-      'coverage/',
-      '.vitepress/cache/',
-      'node_modules/'
-    ]
+    ignores: ['dist/', 'coverage/', '.vitepress/cache/', 'node_modules/'],
   },
 
   // JS defaults
   js.configs.recommended,
 
   // TypeScript (applies to .ts/.tsx and script blocks)
-  ...tseslint.configs.recommendedTypeChecked.map(c => ({
+  ...tseslint.configs.recommendedTypeChecked.map((c) => ({
     ...c,
-    files: ['**/*.ts', '**/*.tsx', '**/*.vue']
+    files: ['**/*.ts', '**/*.tsx', '**/*.vue'],
   })),
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.vue'],
@@ -37,72 +35,72 @@ export default [
         project: ['./tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
         ecmaVersion: 2023,
-        sourceType: 'module'
+        sourceType: 'module',
       },
       globals: {
         ...globals.browser,
-        ...globals.node
-      }
+        ...globals.node,
+      },
     },
     rules: {
       // imports + TS
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }]
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     },
     settings: {
       'import/resolver': {
-        typescript: true
-      }
-    }
+        typescript: true,
+      },
+    },
   },
 
   // Vue (SFC script + template via vue-eslint-parser)
   {
     files: ['**/*.vue'],
     languageOptions: {
-      parser: vuePlugin.parsers['vue-eslint-parser'],
+      parser: vueParser,
 
       parserOptions: {
         parser: tseslint.parser,
         project: ['./tsconfig.json'],
-        extraFileExtensions: ['.vue']
-      }
+        extraFileExtensions: ['.vue'],
+      },
     },
     plugins: {
-      vue: vuePlugin
+      vue: vuePlugin,
     },
     rules: {
       ...vuePlugin.configs['recommended'].rules,
-    }
+    },
   },
 
   // JSON / JSONC
   {
     files: ['**/*.json', '**/*.jsonc'],
-    languageOptions: { parser: jsoncPlugin.parser },
+    languageOptions: { parser: jsoncParser },
     plugins: { jsonc: jsoncPlugin },
     rules: {
-      ...jsoncPlugin.configs['recommended-with-jsonc'].rules
-    }
+      ...jsoncPlugin.configs['recommended-with-jsonc'].rules,
+    },
   },
 
   // YAML
   {
     files: ['**/*.yml', '**/*.yaml'],
-    plugins: { yml: ymlPlugin },
+    plugins: { yml: yamlPlugin },
     languageOptions: {
-      parser: ymlPlugin.parser
+      parser: yamlParser,
     },
     rules: {
-      ...ymlPlugin.configs.standard.rules
-    }
+      ...yamlPlugin.configs.standard.rules,
+    },
   },
 
   // Markdown (code blocks get linted)
   {
     files: ['**/*.md'],
     plugins: { markdown: markdownPlugin },
-    processor: markdownPlugin.processors.markdown
+    processor: markdownPlugin.processors.markdown,
   },
 
   // MDX
@@ -111,12 +109,12 @@ export default [
   {
     files: ['**/*.mdx'],
     plugins: { mdx: mdxPlugin },
-    processor: mdxPlugin.processors.remark
+    processor: mdxPlugin.processors.remark,
   },
 
   // Import rules (works with TS resolver)
   ...compat.extends('plugin:import/recommended'),
 
   // Turn off ESLint rules that conflict with Prettier
-  ...compat.extends('prettier')
+  ...compat.extends('prettier'),
 ];
