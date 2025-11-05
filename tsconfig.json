@@ -6,10 +6,10 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "module": "ESNext",
     "noEmit": true,
-    "moduleResolution": "Bundler",
+    "module": "ESNext",
     "target": "ES2022",
+    "moduleResolution": "Bundler",
     "lib": [
       "DOM",
       "DOM.Iterable",
@@ -17,14 +17,13 @@
     ],
     "types": [
       "vite/client",
-      "vike-react"
+      "node",
     ],
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@kingbreaker/*": [
-        "src/*"
+      "@kb-web/*": [
+        "./src/*"
       ]
     }
   },
