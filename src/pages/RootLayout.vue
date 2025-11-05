@@ -4,6 +4,7 @@ import { NConfigProvider, darkTheme } from 'naive-ui';
 
 // Only on the server: register css-render's SSR adapter
 if (import.meta.env.SSR) {
+  console.log('Registering SSR adapter for css-render');
   useSsrAdapter();
 }
 

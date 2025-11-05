@@ -1,4 +1,3 @@
-import { setup as cssSetup } from '@css-render/vue3-ssr';
 import mdx from '@mdx-js/rollup';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
