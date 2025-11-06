@@ -1,28 +1,9 @@
-import { Component, createSSRApp, h } from 'vue';
-
 import { setup as setupCssSsr } from '@css-render/vue3-ssr';
 import { dangerouslySkipEscape, escapeInject } from 'vike/server';
 import { PageContextServer } from 'vike/types';
 import { renderToString } from 'vue/server-renderer';
 
-import RootLayout from './+Layout.vue';
-
-const createApp = (pageContext: PageContextServer) => {
-  const Page = pageContext.exports.Page;
-  const pageProps = pageContext.exports.pageProps || {};
-  const app = createSSRApp({
-    render: () => h(RootLayout, {}, { default: () => [h(Page as Component, pageProps)] }),
-  });
-
-  app.config.warnHandler = (msg, instance, trace) => {
-    // Suppress specific warnings during SSR
-    console.log('got warning', msg);
-    if (msg.includes('Non-function value encountered for default slot')) return;
-    console.warn(`[Vue warn]: ${msg}${trace}`);
-  };
-
-  return app;
-};
+import createApp from './appFactory';
 
 export default async (pageContext: PageContextServer) => {
   const app = createApp(pageContext);
