@@ -34,31 +34,6 @@ const $ = (naiveTag: Component, extraProps: Record<string, unknown> = {}): Compo
     },
   });
 
-// Helper function to create a function-like wrapper component
-// const $ = <P,>(naiveTag: Component<P>, extraProps: Partial<P> = {}): Component<P> => {
-
-//   return (props, { slots }) => {
-//     console.log(
-//       `creating node for ${naiveTag.name}; props:`,
-//       props,
-//       ' extraProps:',
-//       extraProps,
-//       ' slots:',
-//       slots,
-//     );
-//     let defaultSlotFunction: () => unknown;
-//     if (!slots?.default) {
-//       defaultSlotFunction = () => [];
-//     } else if (typeof slots.default === 'function') {
-//       // already a function, do nothing
-//       defaultSlotFunction = slots.default;
-//     } else {
-//       defaultSlotFunction = () => slots.default!;
-//     }
-
-//     return createVNode(naiveTag, { ...props, ...extraProps }, { default: defaultSlotFunction });
-//   };
-// };
 const components: Record<string, Component> = {
   // Headings
   h1: $(N.NH1),
