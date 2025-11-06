@@ -1,12 +1,23 @@
+import { Component, createSSRApp, h } from 'vue';
+
 import { setup as setupCssSsr } from '@css-render/vue3-ssr';
+import suppressSlotWarning from '@kb-web/mdx-compat/suppressSlotWarning';
 import { dangerouslySkipEscape, escapeInject } from 'vike/server';
 import { PageContextServer } from 'vike/types';
 import { renderToString } from 'vue/server-renderer';
 
-import createApp from './appFactory';
+import RootLayout from './+Layout.vue';
 
+// Pre-render CSS during SSR
 export default async (pageContext: PageContextServer) => {
-  const app = createApp(pageContext);
+  const Page = pageContext.exports.Page;
+  const pageProps = pageContext.exports.pageProps || {};
+
+  const app = createSSRApp({
+    render: () => h(RootLayout, {}, { default: () => [h(Page as Component, pageProps)] }),
+  });
+
+  suppressSlotWarning(app);
 
   // Wire Naive/css-render SSR into THIS app instance
   const cssCollector = setupCssSsr(app);

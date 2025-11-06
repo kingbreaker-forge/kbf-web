@@ -21,6 +21,7 @@ const components = {
   inlineCode: N.NCode,
 
   // Links & images
+
   a: N.NA,
   img: N.NImage,
 

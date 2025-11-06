@@ -18,7 +18,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@kingbreaker': '/src',
+      '@kb-web': '/src',
     },
   },
   ssr: {

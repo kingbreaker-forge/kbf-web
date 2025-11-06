@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { NConfigProvider, darkTheme } from 'naive-ui';
-
-import NaiveMDXProvider from './NaiveMDXProvider.vue';
+import NaiveMDXProvider from '@kb-web/mdx-compat/NaiveMDXProvider.vue';
+import { NConfigProvider, NH1, darkTheme } from 'naive-ui';
 
 // optional, your theme overrides
 const themeOverrides = {
@@ -15,6 +14,7 @@ const isDark = typeof window !== 'undefined' && document.documentElement.classLi
 <template>
   <NConfigProvider :theme="isDark ? darkTheme : null" :theme-overrides="themeOverrides">
     <NaiveMDXProvider>
+      <NH1>This is the global layout</NH1>
       <slot />
     </NaiveMDXProvider>
   </NConfigProvider>
