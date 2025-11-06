@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // This component adds mappings for MDX elements to Naive UI components
 import { MDXProvider } from '@mdx-js/vue';
-import { MDXComponents } from 'mdx/types';
 import * as N from 'naive-ui';
 
 const components = {
@@ -50,7 +49,7 @@ const components = {
   header: N.NP,
   footer: N.NP,
   div: N.NP,
-} satisfies MDXComponents;
+};
 </script>
 
 <template>

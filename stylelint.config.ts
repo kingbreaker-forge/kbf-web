@@ -1,6 +1,6 @@
 /** Stylelint 16.x, Prettier-friendly (no stylelint-config-prettier needed) */
 export default {
-  extends: ['stylelint-config-recommended'],
+  extends: ['stylelint-config-recommended', 'stylelint-config-tailwindcss'],
   overrides: [
     // Let Stylelint understand <style> blocks in .vue/.html
     {

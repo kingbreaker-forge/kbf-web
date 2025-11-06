@@ -2,6 +2,7 @@ import { Component, createSSRApp, h } from 'vue';
 
 import { setup as setupCssSsr } from '@css-render/vue3-ssr';
 import suppressSlotWarning from '@kb-web/mdx-compat/suppressSlotWarning';
+import naive from 'naive-ui';
 import { dangerouslySkipEscape, escapeInject } from 'vike/server';
 import { PageContextServer } from 'vike/types';
 import { renderToString } from 'vue/server-renderer';
@@ -16,6 +17,8 @@ export default async (pageContext: PageContextServer) => {
   const app = createSSRApp({
     render: () => h(RootLayout, {}, { default: () => [h(Page as Component, pageProps)] }),
   });
+
+  app.use(naive);
 
   suppressSlotWarning(app);
 

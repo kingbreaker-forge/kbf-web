@@ -30,6 +30,7 @@ export default [
     files: ['**/*.mdx'],
     ...mdxPlugin.configs.recommended,
   },
+
   // TypeScript (applies to .ts/.tsx and script blocks)
   ...tseslint.configs.recommendedTypeChecked.map((c) => ({
     ...c,

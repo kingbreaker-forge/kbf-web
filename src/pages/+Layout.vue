@@ -1,21 +1,20 @@
 <script setup lang="ts">
+import PageLayout from '@kb-web/components/layout/PageLayout.vue';
 import NaiveMDXProvider from '@kb-web/mdx-compat/NaiveMDXProvider.vue';
-import { NConfigProvider, NH1, darkTheme } from 'naive-ui';
-
-// optional, your theme overrides
-const themeOverrides = {
-  common: { primaryColor: '#c93a53' },
-};
+import '@kb-web/styles/tailwind.css';
+import { NConfigProvider, c, darkTheme } from 'naive-ui';
 
 // keep Tailwind/Naive dark mode in sync however you prefer
-const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+// const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+const isDark = true;
 </script>
 
 <template>
-  <NConfigProvider :theme="isDark ? darkTheme : null" :theme-overrides="themeOverrides">
+  <NConfigProvider :theme="isDark ? darkTheme : null">
     <NaiveMDXProvider>
-      <NH1>This is the global layout</NH1>
-      <slot />
+      <PageLayout>
+        <slot />
+      </PageLayout>
     </NaiveMDXProvider>
   </NConfigProvider>
 </template>

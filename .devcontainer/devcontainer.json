@@ -9,18 +9,19 @@
         "vscode": {
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
-                "eamodio.gitlens", // More git features
-                "foxundermoon.shell-format", // Shell formatting
-                "ms-azuretools.vscode-docker", // Dockerfile formatting
-                "wdhongtw.gpg-indicator", // GPG key management
-                "dbaeumer.vscode-eslint", // ESLint support
-                "esbenp.prettier-vscode", // Prettier formatter
-                "Vue.volar", // Vue support
-                "Vue.vscode-typescript-vue-plugin", // Vue TypeScript support
-                "unifiedjs.vscode-mdx", // MDX support
-                "yzhang.markdown-all-in-one", // Markdown support
-                "stylelint.vscode-stylelint", // CSS/SCSS Stylelint support
-                "EditorConfig.EditorConfig" // For project-wide .editorconfig
+                "eamodio.gitlens",
+                "foxundermoon.shell-format",
+                "ms-azuretools.vscode-docker",
+                "wdhongtw.gpg-indicator",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "Vue.volar",
+                "Vue.vscode-typescript-vue-plugin",
+                "unifiedjs.vscode-mdx",
+                "yzhang.markdown-all-in-one",
+                "stylelint.vscode-stylelint",
+                "EditorConfig.EditorConfig",
+                "csstools.postcss"
             ]
         }
     }
