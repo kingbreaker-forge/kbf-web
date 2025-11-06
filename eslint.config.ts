@@ -23,6 +23,13 @@ export default [
   // JS defaults
   js.configs.recommended,
 
+  // MDX
+  //  - The 'mdx/remark' processor lets ESLint parse code in MDX fences/expressions
+  //  - We also target .mdx directly for linting
+  {
+    files: ['**/*.mdx'],
+    ...mdxPlugin.configs.recommended,
+  },
   // TypeScript (applies to .ts/.tsx and script blocks)
   ...tseslint.configs.recommendedTypeChecked.map((c) => ({
     ...c,
@@ -101,15 +108,6 @@ export default [
     files: ['**/*.md'],
     plugins: { markdown: markdownPlugin },
     processor: markdownPlugin.processors.markdown,
-  },
-
-  // MDX
-  //  - The 'mdx/remark' processor lets ESLint parse code in MDX fences/expressions
-  //  - We also target .mdx directly for linting
-  {
-    files: ['**/*.mdx'],
-    plugins: { mdx: mdxPlugin },
-    processor: mdxPlugin.processors.remark,
   },
 
   // Import rules (works with TS resolver)
