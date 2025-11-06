@@ -10,7 +10,9 @@ import RootLayout from './+Layout.vue';
 export default async (pageContext: PageContextServer) => {
   const Page = pageContext.exports.Page;
   const pageProps = pageContext.exports.pageProps || {};
-  const app = createSSRApp({ render: () => h(RootLayout, {}, [h(Page, pageProps)]) });
+  const app = createSSRApp({
+    render: () => h(RootLayout, {}, { default: () => [h(Page, pageProps)] }),
+  });
 
   // Wire Naive/css-render SSR into THIS app instance
   const cssCollector = setupCssSsr(app);
