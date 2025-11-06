@@ -1,4 +1,4 @@
-import { createSSRApp, h } from 'vue';
+import { Component, createSSRApp, h } from 'vue';
 
 import { setup as setupCssSsr } from '@css-render/vue3-ssr';
 import { dangerouslySkipEscape, escapeInject } from 'vike/server';
@@ -11,7 +11,7 @@ export default async (pageContext: PageContextServer) => {
   const Page = pageContext.exports.Page;
   const pageProps = pageContext.exports.pageProps || {};
   const app = createSSRApp({
-    render: () => h(RootLayout, {}, { default: () => [h(Page, pageProps)] }),
+    render: () => h(RootLayout, {}, { default: () => [h(Page as Component, pageProps)] }),
   });
 
   // Wire Naive/css-render SSR into THIS app instance
@@ -26,7 +26,7 @@ export default async (pageContext: PageContextServer) => {
   const documentHtml = escapeInject`<!DOCTYPE html>
   <html>
     <head>
-      <style id="naive-ssr-css">${dangerouslySkipEscape(criticalCss)}</style>
+      ${dangerouslySkipEscape(criticalCss)}
     </head>
     <body>
       <div id="app">${dangerouslySkipEscape(appHtml)}</div>

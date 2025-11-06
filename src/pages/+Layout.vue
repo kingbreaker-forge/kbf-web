@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import { useSsrAdapter } from '@css-render/vue3-ssr';
 import { NConfigProvider, darkTheme } from 'naive-ui';
-
-// Only on the server: register css-render's SSR adapter
-if (import.meta.env.SSR) {
-  console.log('Registering SSR adapter for css-render');
-  useSsrAdapter();
-}
 
 // optional, your theme overrides
 const themeOverrides = {
@@ -18,11 +11,7 @@ const isDark = typeof window !== 'undefined' && document.documentElement.classLi
 </script>
 
 <template>
-  <NConfigProvider
-    :theme="isDark ? darkTheme : null"
-    :theme-overrides="themeOverrides"
-    inline-theme-disabled
-  >
+  <NConfigProvider :theme="isDark ? darkTheme : null" :theme-overrides="themeOverrides">
     <slot />
   </NConfigProvider>
 </template>
