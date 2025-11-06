@@ -7,12 +7,25 @@ import { renderToString } from 'vue/server-renderer';
 
 import RootLayout from './+Layout.vue';
 
-export default async (pageContext: PageContextServer) => {
+const createApp = (pageContext: PageContextServer) => {
   const Page = pageContext.exports.Page;
   const pageProps = pageContext.exports.pageProps || {};
   const app = createSSRApp({
     render: () => h(RootLayout, {}, { default: () => [h(Page as Component, pageProps)] }),
   });
+
+  app.config.warnHandler = (msg, instance, trace) => {
+    // Suppress specific warnings during SSR
+    console.log('got warning', msg);
+    if (msg.includes('Non-function value encountered for default slot')) return;
+    console.warn(`[Vue warn]: ${msg}${trace}`);
+  };
+
+  return app;
+};
+
+export default async (pageContext: PageContextServer) => {
+  const app = createApp(pageContext);
 
   // Wire Naive/css-render SSR into THIS app instance
   const cssCollector = setupCssSsr(app);
