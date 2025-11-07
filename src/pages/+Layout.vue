@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import PageLayout from '@kb-web/components/layout/PageLayout.vue';
-import NaiveMDXProvider from '@kb-web/mdx-compat/NaiveMDXProvider.vue';
-import '@kb-web/styles/tailwind.css';
-import { NConfigProvider, c, darkTheme } from 'naive-ui';
+import ApplicationShell from '@kb-web/components/shell/ApplicationShell.vue';
+import VuetifyMDXProvider from '@kb-web/mdx-compat/VuetifyMDXProvider.vue';
+// import '@kb-web/styles/tailwind.css';
+import 'vuetify/styles';
 
 // keep Tailwind/Naive dark mode in sync however you prefer
 // const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
@@ -10,11 +10,9 @@ const isDark = true;
 </script>
 
 <template>
-  <NConfigProvider :theme="isDark ? darkTheme : null">
-    <NaiveMDXProvider>
-      <PageLayout>
-        <slot />
-      </PageLayout>
-    </NaiveMDXProvider>
-  </NConfigProvider>
+  <VuetifyMDXProvider>
+    <ApplicationShell>
+      <slot />
+    </ApplicationShell>
+  </VuetifyMDXProvider>
 </template>

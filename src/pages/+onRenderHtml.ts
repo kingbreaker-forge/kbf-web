@@ -2,12 +2,13 @@ import { Component, createSSRApp, h } from 'vue';
 
 import { setup as setupCssSsr } from '@css-render/vue3-ssr';
 import suppressSlotWarning from '@kb-web/mdx-compat/suppressSlotWarning';
-import naive from 'naive-ui';
 import { dangerouslySkipEscape, escapeInject } from 'vike/server';
 import { PageContextServer } from 'vike/types';
 import { renderToString } from 'vue/server-renderer';
+import { createVuetify } from 'vuetify';
 
 import RootLayout from './+Layout.vue';
+import vuetifyConfiguration from './vuetifyConfiguration';
 
 // Pre-render CSS during SSR
 export default async (pageContext: PageContextServer) => {
@@ -18,7 +19,8 @@ export default async (pageContext: PageContextServer) => {
     render: () => h(RootLayout, {}, { default: () => [h(Page as Component, pageProps)] }),
   });
 
-  app.use(naive);
+  const vuetify = createVuetify(vuetifyConfiguration);
+  app.use(vuetify);
 
   suppressSlotWarning(app);
 
