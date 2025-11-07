@@ -12,14 +12,14 @@ import { VApp, VBtn, VContainer } from 'vuetify/components';
   <VApp class="kb-app-shell">
     <header class="kb-app-shell__header" role="banner">
       <VContainer class="kb-app-shell__brand">
-        <VBtn text href="/" class="kb-app-shell__logo text-h4">Kingbreaker Forge</VBtn>
+        <a href="/" class="kb-app-shell__logo text-h4">Kingbreaker Forge</a>
       </VContainer>
       <div class="kb-app-shell__nav-wrap">
         <VContainer class="kb-app-shell__nav" tag="nav">
-          <VBtn text href="/about">About</VBtn>
-          <VBtn text href="/blog">Blog</VBtn>
-          <VBtn text href="/inventory">Inventory</VBtn>
-          <VBtn text href="/contact">Contact</VBtn>
+          <VBtn variant="text" href="/about">About</VBtn>
+          <VBtn variant="text" href="/blog">Blog</VBtn>
+          <VBtn variant="text" href="/inventory">Inventory</VBtn>
+          <VBtn variant="text" href="/contact">Contact</VBtn>
         </VContainer>
       </div>
     </header>
@@ -59,8 +59,22 @@ import { VApp, VBtn, VContainer } from 'vuetify/components';
 }
 
 .kb-app-shell__logo {
+  display: inline-flex;
+  align-items: center;
   font-weight: 600;
   letter-spacing: 0.05em;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.kb-app-shell__logo:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.kb-app-shell__logo:hover {
+  color: rgb(var(--v-theme-primary));
 }
 
 .kb-app-shell__nav-wrap {
