@@ -1,30 +1,92 @@
 <script setup lang="ts">
-import { VApp, VAppBar, VBtn, VContainer, VMain, VSpacer } from 'vuetify/components';
+import { VApp, VBtn, VContainer } from 'vuetify/components';
 </script>
 
+<!--
+  Vuetify's VAppBar/VMain rely on client-only measurements of the toolbar to
+  compute layout offsets. During SSR those refs resolve to 0px, so the content
+  flashes underneath the bar until hydration. This shell keeps Vuetify theming
+  but manages spacing with plain HTML/CSS so both server and client renders match.
+-->
 <template>
-  <VApp>
-    <VAppBar>
-      <template #default>
-        <VContainer class="mx-auto d-flex justify-center align-center items-center">
-          <VBtn text href="/" class="text-h4">Kingbreaker Forge</VBtn>
-        </VContainer>
-      </template>
-      <template #extension>
-        <VContainer class="mx-auto d-flex justify-center">
-          <VSpacer />
+  <VApp class="kb-app-shell">
+    <header class="kb-app-shell__header" role="banner">
+      <VContainer class="kb-app-shell__brand">
+        <VBtn text href="/" class="kb-app-shell__logo text-h4">Kingbreaker Forge</VBtn>
+      </VContainer>
+      <div class="kb-app-shell__nav-wrap">
+        <VContainer class="kb-app-shell__nav" tag="nav">
           <VBtn text href="/about">About</VBtn>
           <VBtn text href="/blog">Blog</VBtn>
           <VBtn text href="/inventory">Inventory</VBtn>
           <VBtn text href="/contact">Contact</VBtn>
-          <VSpacer />
         </VContainer>
-      </template>
-    </VAppBar>
-    <VMain>
+      </div>
+    </header>
+    <main class="kb-app-shell__main">
       <VContainer class="mx-auto">
         <slot />
       </VContainer>
-    </VMain>
+    </main>
   </VApp>
 </template>
+
+<style scoped>
+.kb-app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgb(var(--v-theme-background));
+  color: rgb(var(--v-theme-on-background));
+}
+
+.kb-app-shell__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  background: rgb(var(--v-theme-surface));
+  color: rgb(var(--v-theme-on-surface));
+  box-shadow: var(--v-shadow-4);
+}
+
+.kb-app-shell__brand {
+  display: flex;
+  justify-content: center;
+  padding-block: 0.75rem;
+}
+
+.kb-app-shell__logo {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.kb-app-shell__nav-wrap {
+  border-top: 1px solid rgba(var(--v-theme-on-surface), 0.12);
+}
+
+.kb-app-shell__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
+}
+
+.kb-app-shell__main {
+  flex: 1 0 auto;
+  padding-block: 2.5rem 4rem;
+}
+
+@media (min-width: 960px) {
+  .kb-app-shell__nav {
+    gap: 1.5rem;
+  }
+
+  .kb-app-shell__main {
+    padding-top: 4rem;
+  }
+}
+</style>
