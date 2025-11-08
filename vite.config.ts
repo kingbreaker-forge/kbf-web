@@ -1,5 +1,4 @@
 import mdx from '@mdx-js/rollup';
-// import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import remarkGfm from 'remark-gfm';
@@ -16,7 +15,6 @@ export default defineConfig({
       autoImport: false,
     }),
     vueJsx(),
-    // tailwindcss(),
     mdx({
       providerImportSource: '@mdx-js/vue',
       jsxImportSource: 'vue',
