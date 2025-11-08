@@ -1,6 +1,7 @@
 import { App, Component, createApp, createSSRApp, h } from 'vue';
 
 import { PageContext } from 'vike/types';
+import { setPageContext } from 'vike-vue/usePageContext';
 
 import RootLayout from './+Layout.vue';
 
@@ -25,6 +26,8 @@ export default (pageContext: PageContext) => {
     if (msg.includes('Non-function value encountered for default slot')) return;
     console.warn(`[Vue warn]: ${msg}${trace}`);
   };
+
+  setPageContext(app, pageContext);
 
   return app;
 };
