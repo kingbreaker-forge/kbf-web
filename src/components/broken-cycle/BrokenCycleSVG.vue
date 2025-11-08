@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineProps, watch, watchEffect } from 'vue';
+import { computed, defineProps } from 'vue';
 
 const props = withDefaults(
   defineProps<{
