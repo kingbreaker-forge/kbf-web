@@ -9,3 +9,86 @@ This is a button:
 <VBtn>Click me!</VBtn>
 
 [Go back home](/)
+
+---
+
+## Extended Markdown Torture Test
+
+### Mixed Formatting Playground
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget nunc id nisl finibus cursus. _Curabitur semper_, **tellus vitae**, `semper augue`, et ~~porta nibh~~ risus at orci. Vivamus porta:
+
+1. **Bold beginnings** that set the tone.
+2. _Italic insights_ to test emphasis.
+3. `inline-code` nestled inside text.
+4. ~~Strikethrough~~ for deprecated ideas.
+
+> “Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.”
+> — Markdown Ipsum Generator
+
+### Side-by-Side Imagery
+
+![Mist over mountains](https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&auto=format&fit=crop&q=80)
+
+![Colorful city lights](https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&auto=format&fit=crop&q=80)
+
+### Multi-Column Table
+
+| Section     | Details                                                                                                        | Callout         |
+| ----------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
+| **Feature** | Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.                  | ✅ Stable       |
+| **Warning** | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.         | ⚠️ Needs review |
+| **Note**    | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. | 📝 Pending      |
+
+### Long-Form Content
+
+Aliquam erat volutpat. Integer pulvinar, nisl sed lobortis convallis, ipsum diam viverra ipsum, in lacinia leo urna vitae sapien. Vestibulum ac ipsum id magna bibendum scelerisque. “Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,” inquit fugiat iste natus. Sed euismod lacus a erat fermentum, non posuere justo ornare. Nullam eget massa vel nisl sodales rutrum a id lectus. Nam bibendum sapien id risus finibus, sed sodales purus porta.
+
+Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur dictum, massa eget malesuada condimentum, nulla purus eleifend mauris, quis malesuada ante orci ac nisi. Sed vitae magna a arcu maximus luctus. Integer maximus pharetra congue. Nulla facilisi. Proin fermentum sollicitudin diam, eget gravida ligula consequat at. Sed consequat viverra turpis ut volutpat. Nunc tempor fringilla elit, non interdum risus gravida sit amet.
+
+### Code Block Sample
+
+```ts
+function renderMarkdownPreview(seed: number) {
+  return fetch(`https://picsum.photos/seed/${seed}/600/400`)
+    .then((res) => res.url)
+    .catch(() => 'https://placehold.co/600x400?text=Fallback');
+}
+```
+
+### Lists Inside Lists
+
+- Primary bullet with longform text to validate wrapping behavior across screen sizes for the design system.
+  - Nested bullet with emphasized text **inside the child** element.
+    - Third-level bullet containing `inline-code` to ensure spacing works.
+- Another top-level bullet, this time embedding a short equation: `E = mc^2`.
+
+### Definition List
+
+Term
+: Definition paragraph that spans multiple sentences to ensure indentation rules render correctly in the layout. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Another Term
+: Secondary description with additional inline formatting like **bold** and _italic_ inside the definition.
+
+### Collapsible Text (Pseudo)
+
+<details>
+  <summary>Click to reveal hidden markdown</summary>
+
+Hidden paragraph with **bold** text, inline `code`, and a quick link to [example.com](https://example.com).
+
+- Hidden list item one
+- Hidden list item two
+
+</details>
+
+### More Filler Copy
+
+Praesent eget vestibulum mauris. Donec vitae ipsum accumsan, ornare nibh vitae, convallis odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sit amet venenatis diam. Vivamus elementum sed dui sit amet auctor. Integer pellentesque at massa sit amet bibendum. Curabitur commodo, elit at dictum molestie, leo erat finibus odio, vitae interdum augue sem at dolor. In accumsan elementum neque sed vulputate. Quisque suscipit mi id augue ultrices, sed tempor nunc efficitur.
+
+Morbi sed ante laoreet, condimentum augue sed, dignissim arcu. Duis molestie nisl nec risus porttitor, nec fringilla orci malesuada. Nulla vehicula dignissim risus, id facilisis magna efficitur quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed aliquet purus ut velit egestas, id facilisis orci venenatis. Donec vulputate ullamcorper urna, sed pellentesque risus efficitur vitae. Integer finibus enim nec eros luctus, quis cursus massa gravida.
+
+---
+
+Need more? [Jump back to the top](#hello-from-mdx).

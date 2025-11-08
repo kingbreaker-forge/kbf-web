@@ -20,11 +20,12 @@ const components = {
   strong: C.VStrong,
   em: C.VEm,
   del: C.VDel,
-  inlineCode: C.VInlineCode,
+  code: C.VCodeInline,
+  inlineCode: C.VCodeInline,
 
   // Links & images
   a: C.VA,
-  img: C.VImg,
+  img: C.VMDXImg,
 
   // Lists
   ul: C.VUl,
@@ -32,8 +33,7 @@ const components = {
   li: C.VLi,
 
   // Code blocks
-  pre: C.VPre,
-  code: C.VCode,
+  pre: C.VCodeBlock,
 
   // Blockquote, hr, tables
   blockquote: C.VBlockquote,

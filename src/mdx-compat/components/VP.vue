@@ -3,3 +3,9 @@
     <slot />
   </p>
 </template>
+
+<style scoped>
+p {
+  margin-block: 0.5rem;
+}
+</style>

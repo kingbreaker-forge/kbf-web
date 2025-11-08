@@ -2,6 +2,7 @@ import mdx from '@mdx-js/rollup';
 // import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import remarkGfm from 'remark-gfm';
 import vike from 'vike/plugin';
 import { defineConfig } from 'vite';
 import vuetify from 'vite-plugin-vuetify';
@@ -16,7 +17,11 @@ export default defineConfig({
     }),
     vueJsx(),
     // tailwindcss(),
-    mdx({ providerImportSource: '@mdx-js/vue', jsxImportSource: 'vue' }),
+    mdx({
+      providerImportSource: '@mdx-js/vue',
+      jsxImportSource: 'vue',
+      remarkPlugins: [remarkGfm],
+    }),
     svg(),
   ],
   build: {

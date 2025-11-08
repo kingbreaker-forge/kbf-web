@@ -1,5 +1,8 @@
+<script setup lang="ts">
+import { VTable } from 'vuetify/components';
+</script>
 <template>
-  <table class="text-body-2" v-bind="$attrs">
+  <VTable class="text-body-2" v-bind="$attrs">
     <slot />
-  </table>
+  </VTable>
 </template>
