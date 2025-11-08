@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { VCard, VCardText, VImg } from 'vuetify/components';
+import { VCard, VImg, VNoSsr } from 'vuetify/components';
+
+defineOptions({
+  inheritAttrs: false,
+});
 </script>
 
 <template>
-  <VCard width="80%" class="mx-auto">
-    <VCardText>
-      <VImg v-bind="$attrs" />
-    </VCardText>
-  </VCard>
+  <VNoSsr>
+    <VCard width="80%" class="mx-auto">
+      <VImg v-bind="$attrs" cover />
+    </VCard>
+  </VNoSsr>
 </template>
