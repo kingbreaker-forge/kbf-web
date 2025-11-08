@@ -1,12 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 import BrokenCycleSVG from '@kb-web/components/broken-cycle/BrokenCycleSVG.vue';
-import { VApp, VBtn, VContainer, VIcon } from 'vuetify/components';
+import { useWindowScroll } from '@vueuse/core';
+import { VApp, VBtn, VContainer, VIcon, VParallax } from 'vuetify/components';
 
-// import { usePageBackground } from './pageBackground';
+import { usePageBackground } from './pageBackground';
 
-// const { backgroundURL } = usePageBackground();
+const { backgroundURL } = usePageBackground();
+
+const { y: windowScrollY } = useWindowScroll();
+
+const backdropBlurStyle = computed(() => {
+  const blurAmount = Math.min(windowScrollY.value / 100 + 3, 15);
+  return {
+    backdropFilter: `blur(${blurAmount}px)`,
+  };
+});
 
 const logoHovered = ref(false);
 const setLogoHovered = (hovered: boolean) => {
@@ -22,35 +32,39 @@ const setLogoHovered = (hovered: boolean) => {
 -->
 <template>
   <VApp class="kb-app-shell">
-    <header class="header" role="banner">
-      <VContainer class="brand">
-        <a
-          href="/"
-          class="logo text-h4"
-          @mouseover="() => setLogoHovered(true)"
-          @mouseleave="() => setLogoHovered(false)"
-        >
-          <span>Kingbreaker</span>
-          <VIcon class="d-inline-flex">
-            <BrokenCycleSVG :broken="logoHovered" />
-          </VIcon>
-          <span>Forge</span>
-        </a>
-      </VContainer>
-      <div class="nav-wrap">
-        <VContainer class="nav" tag="nav">
-          <VBtn variant="text" href="/about">About</VBtn>
-          <VBtn variant="text" href="/blog">Blog</VBtn>
-          <VBtn variant="text" href="/inventory">Inventory</VBtn>
-          <VBtn variant="text" href="/contact">Contact</VBtn>
-        </VContainer>
+    <VParallax class="parallax" :src="backgroundURL">
+      <div class="fill-height parallax-mask" :style="backdropBlurStyle">
+        <header class="header" role="banner">
+          <VContainer class="brand">
+            <a
+              href="/"
+              class="logo text-h4"
+              @mouseover="() => setLogoHovered(true)"
+              @mouseleave="() => setLogoHovered(false)"
+            >
+              <span>Kingbreaker</span>
+              <VIcon class="d-inline-flex">
+                <BrokenCycleSVG :broken="logoHovered" />
+              </VIcon>
+              <span>Forge</span>
+            </a>
+          </VContainer>
+          <div class="nav-wrap">
+            <VContainer class="nav" tag="nav">
+              <VBtn variant="text" href="/about">About</VBtn>
+              <VBtn variant="text" href="/blog">Blog</VBtn>
+              <VBtn variant="text" href="/inventory">Inventory</VBtn>
+              <VBtn variant="text" href="/contact">Contact</VBtn>
+            </VContainer>
+          </div>
+        </header>
+        <main>
+          <VContainer class="mx-auto">
+            <slot />
+          </VContainer>
+        </main>
       </div>
-    </header>
-    <main>
-      <VContainer class="mx-auto">
-        <slot />
-      </VContainer>
-    </main>
+    </VParallax>
   </VApp>
 </template>
 
@@ -59,12 +73,7 @@ const setLogoHovered = (hovered: boolean) => {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  // background-color: rgb(var(--v-theme-background));
-  // background-position-x: center;
-  // background-position-y: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-attachment: fixed;
+  background-color: rgb(var(--v-theme-background));
   color: rgb(var(--v-theme-on-background));
 
   main {
@@ -75,6 +84,21 @@ const setLogoHovered = (hovered: boolean) => {
       padding-top: 4rem;
     }
   }
+}
+
+.parallax {
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+.parallax-mask {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 100, 100, 0.25),
+    rgba(255, 100, 100, 0.25) 3px,
+    rgba(0, 0, 0, 0.25) 3px,
+    rgba(0, 0, 0, 0.25) 6px
+  );
 }
 
 .header {
