@@ -1,21 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import BrokenCycleSVG from '@kb-web/components/broken-cycle/BrokenCycleSVG.vue';
 import { usePageContext } from 'vike-vue/usePageContext';
-import { useTheme } from 'vuetify';
-import {
-  VBtn,
-  VCard,
-  VCardActions,
-  VCardTitle,
-  VChip,
-  VCode,
-  VIcon,
-  VImg,
-  VSheet,
-} from 'vuetify/components';
-import { useIcon } from 'vuetify/lib/composables/icons.mjs';
+import { VBtn, VCard, VCardActions, VCardTitle, VChip, VCode } from 'vuetify/components';
 
 const pageContext = usePageContext();
 

@@ -16,8 +16,6 @@ const props = withDefaults(
 
 const passthroughAttrs = useAttrs();
 
-console.log('passthroughAttrs', { ...passthroughAttrs });
-
 const svgClasses = computed(() => ({
   animated: props.animated,
   broken: props.broken,

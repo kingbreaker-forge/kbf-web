@@ -32,39 +32,39 @@ const setLogoHovered = (hovered: boolean) => {
 -->
 <template>
   <VApp class="kb-app-shell">
-    <VParallax class="parallax" :src="backgroundURL">
-      <div class="fill-height parallax-mask" :style="backdropBlurStyle">
-        <header class="header" role="banner">
-          <VContainer class="brand">
-            <a
-              href="/"
-              class="logo text-h4"
-              @mouseover="() => setLogoHovered(true)"
-              @mouseleave="() => setLogoHovered(false)"
-            >
-              <span>Kingbreaker</span>
-              <VIcon class="d-inline-flex">
-                <BrokenCycleSVG :broken="logoHovered" />
-              </VIcon>
-              <span>Forge</span>
-            </a>
-          </VContainer>
-          <div class="nav-wrap">
-            <VContainer class="nav" tag="nav">
-              <VBtn variant="text" href="/about">About</VBtn>
-              <VBtn variant="text" href="/blog">Blog</VBtn>
-              <VBtn variant="text" href="/inventory">Inventory</VBtn>
-              <VBtn variant="text" href="/contact">Contact</VBtn>
-            </VContainer>
-          </div>
-        </header>
-        <main>
-          <VContainer class="mx-auto">
-            <slot />
-          </VContainer>
-        </main>
-      </div>
+    <VParallax class="parallax" :src="backgroundURL" :scale="0.5">
+      <div class="fill-height parallax-mask" :style="backdropBlurStyle" />
     </VParallax>
+
+    <header class="header" role="banner">
+      <VContainer class="brand">
+        <a
+          href="/"
+          class="logo text-h4"
+          @mouseover="() => setLogoHovered(true)"
+          @mouseleave="() => setLogoHovered(false)"
+        >
+          <span>Kingbreaker</span>
+          <VIcon class="d-inline-flex">
+            <BrokenCycleSVG :broken="logoHovered" />
+          </VIcon>
+          <span>Forge</span>
+        </a>
+      </VContainer>
+      <div class="nav-wrap">
+        <VContainer class="nav" tag="nav">
+          <VBtn variant="text" href="/about">About</VBtn>
+          <VBtn variant="text" href="/blog">Blog</VBtn>
+          <VBtn variant="text" href="/inventory">Inventory</VBtn>
+          <VBtn variant="text" href="/contact">Contact</VBtn>
+        </VContainer>
+      </div>
+    </header>
+    <main>
+      <VContainer class="mx-auto">
+        <slot />
+      </VContainer>
+    </main>
   </VApp>
 </template>
 
@@ -73,7 +73,8 @@ const setLogoHovered = (hovered: boolean) => {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: rgb(var(--v-theme-background));
+  // background-color: rgb(var(--v-theme-background));
+  background: transparent;
   color: rgb(var(--v-theme-on-background));
 
   main {
@@ -87,8 +88,12 @@ const setLogoHovered = (hovered: boolean) => {
 }
 
 .parallax {
-  min-height: 100vh;
-  background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .parallax-mask {
