@@ -48,3 +48,4 @@ setPageBackground(AboutBackground);
 img {
   margin: 3rem;
 }
+</style>
