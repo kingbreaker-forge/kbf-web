@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import BrokenCycleSVG from '@kb-web/components/broken-cycle/BrokenCycleSVG.vue';
 import { VApp, VBtn, VContainer, VIcon } from 'vuetify/components';
 
-import BrokenCycleSVG from './broken-cycle/BrokenCycleSVG.vue';
+// import { usePageBackground } from './pageBackground';
+
+// const { backgroundURL } = usePageBackground();
 
 const logoHovered = ref(false);
 const setLogoHovered = (hovered: boolean) => {
@@ -19,11 +22,11 @@ const setLogoHovered = (hovered: boolean) => {
 -->
 <template>
   <VApp class="kb-app-shell">
-    <header class="kb-app-shell__header" role="banner">
-      <VContainer class="kb-app-shell__brand">
+    <header class="header" role="banner">
+      <VContainer class="brand">
         <a
           href="/"
-          class="kb-app-shell__logo text-h4"
+          class="logo text-h4"
           @mouseover="() => setLogoHovered(true)"
           @mouseleave="() => setLogoHovered(false)"
         >
@@ -34,8 +37,8 @@ const setLogoHovered = (hovered: boolean) => {
           <span>Forge</span>
         </a>
       </VContainer>
-      <div class="kb-app-shell__nav-wrap">
-        <VContainer class="kb-app-shell__nav" tag="nav">
+      <div class="nav-wrap">
+        <VContainer class="nav" tag="nav">
           <VBtn variant="text" href="/about">About</VBtn>
           <VBtn variant="text" href="/blog">Blog</VBtn>
           <VBtn variant="text" href="/inventory">Inventory</VBtn>
@@ -43,7 +46,7 @@ const setLogoHovered = (hovered: boolean) => {
         </VContainer>
       </div>
     </header>
-    <main class="kb-app-shell__main">
+    <main>
       <VContainer class="mx-auto">
         <slot />
       </VContainer>
@@ -51,16 +54,30 @@ const setLogoHovered = (hovered: boolean) => {
   </VApp>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .kb-app-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: rgb(var(--v-theme-background));
+  // background-color: rgb(var(--v-theme-background));
+  // background-position-x: center;
+  // background-position-y: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
   color: rgb(var(--v-theme-on-background));
+
+  main {
+    flex: 1 0 auto;
+    padding-block: 2.5rem 4rem;
+
+    @media (min-width: 960px) {
+      padding-top: 4rem;
+    }
+  }
 }
 
-.kb-app-shell__header {
+.header {
   position: sticky;
   top: 0;
   z-index: 10;
@@ -72,13 +89,13 @@ const setLogoHovered = (hovered: boolean) => {
   box-shadow: var(--v-shadow-4);
 }
 
-.kb-app-shell__brand {
+.brand {
   display: flex;
   justify-content: center;
   padding-block: 0.75rem;
 }
 
-.kb-app-shell__logo {
+.logo {
   display: inline-flex;
   align-items: center;
   font-weight: 600;
@@ -89,37 +106,26 @@ const setLogoHovered = (hovered: boolean) => {
   &:hover {
     color: inherit;
   }
-}
 
-.kb-app-shell__logo:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 4px;
-}
-
-.kb-app-shell__nav-wrap {
-  border-top: 1px solid rgba(var(--v-theme-on-surface), 0.12);
-}
-
-.kb-app-shell__nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  padding-block: 0.5rem;
-}
-
-.kb-app-shell__main {
-  flex: 1 0 auto;
-  padding-block: 2.5rem 4rem;
-}
-
-@media (min-width: 960px) {
-  .kb-app-shell__nav {
-    gap: 1.5rem;
+  &focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
   }
+}
 
-  .kb-app-shell__main {
-    padding-top: 4rem;
+.nav-wrap {
+  border-top: 1px solid rgba(var(--v-theme-on-surface), 0.12);
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-block: 0.5rem;
+
+    @media (min-width: 960px) {
+      gap: 1.5rem;
+    }
   }
 }
 </style>
