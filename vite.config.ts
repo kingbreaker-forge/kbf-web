@@ -33,6 +33,6 @@ export default defineConfig({
   ssr: {
     // bundle Vuetify on the server so CSS imports are transformed instead of
     // hitting Node directly (which cannot load .css files)
-    noExternal: ['naive-ui', 'vueuc', 'date-fns', 'vuetify'],
+    noExternal: ['vuetify'],
   },
 });

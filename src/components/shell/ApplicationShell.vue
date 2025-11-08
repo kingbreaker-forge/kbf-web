@@ -98,11 +98,11 @@ const setLogoHovered = (hovered: boolean) => {
 
 .parallax-mask {
   background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(255, 100, 100, 0.25),
-    rgba(255, 100, 100, 0.25) 3px,
-    rgba(0, 0, 0, 0.25) 3px,
-    rgba(0, 0, 0, 0.25) 6px
+    -60deg,
+    rgba(75, 10, 10, 0.75),
+    rgba(75, 10, 10, 0.75) 5px,
+    rgba(0, 0, 0, 0.75) 5px,
+    rgba(0, 0, 0, 0.75) 10px
   );
 }
 

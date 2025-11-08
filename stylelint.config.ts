@@ -1,6 +1,7 @@
 /** Stylelint 16.x, Prettier-friendly (no stylelint-config-prettier needed) */
 export default {
-  extends: ['stylelint-config-recommended'],
+  plugins: ['stylelint-scss'],
+  extends: ['stylelint-config-recommended-scss'],
   overrides: [
     // Let Stylelint understand <style> blocks in .vue/.html
     {

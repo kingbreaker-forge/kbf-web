@@ -2,7 +2,16 @@
 import { computed } from 'vue';
 
 import { usePageContext } from 'vike-vue/usePageContext';
-import { VBtn, VCard, VCardActions, VCardTitle, VChip, VCode } from 'vuetify/components';
+import {
+  VBtn,
+  VCard,
+  VCardActions,
+  VCardText,
+  VCardTitle,
+  VChip,
+  VCode,
+  VProgressCircular,
+} from 'vuetify/components';
 
 const pageContext = usePageContext();
 

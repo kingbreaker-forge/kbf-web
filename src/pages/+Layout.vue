@@ -11,3 +11,9 @@ import 'vuetify/styles';
     </ApplicationShell>
   </VuetifyMDXProvider>
 </template>
+
+<style lang="scss">
+p {
+  margin-bottom: 16px;
+}
+</style>
