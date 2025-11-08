@@ -1,5 +1,14 @@
 <script setup lang="ts">
-import { VApp, VBtn, VContainer } from 'vuetify/components';
+import { ref } from 'vue';
+
+import { VApp, VBtn, VContainer, VIcon } from 'vuetify/components';
+
+import BrokenCycleSVG from './broken-cycle/BrokenCycleSVG.vue';
+
+const logoHovered = ref(false);
+const setLogoHovered = (hovered: boolean) => {
+  logoHovered.value = hovered;
+};
 </script>
 
 <!--
@@ -12,7 +21,18 @@ import { VApp, VBtn, VContainer } from 'vuetify/components';
   <VApp class="kb-app-shell">
     <header class="kb-app-shell__header" role="banner">
       <VContainer class="kb-app-shell__brand">
-        <a href="/" class="kb-app-shell__logo text-h4">Kingbreaker Forge</a>
+        <a
+          href="/"
+          class="kb-app-shell__logo text-h4"
+          @mouseover="() => setLogoHovered(true)"
+          @mouseleave="() => setLogoHovered(false)"
+        >
+          <span>Kingbreaker</span>
+          <VIcon class="d-inline-flex">
+            <BrokenCycleSVG :broken="logoHovered" />
+          </VIcon>
+          <span>Forge</span>
+        </a>
       </VContainer>
       <div class="kb-app-shell__nav-wrap">
         <VContainer class="kb-app-shell__nav" tag="nav">
@@ -65,16 +85,15 @@ import { VApp, VBtn, VContainer } from 'vuetify/components';
   letter-spacing: 0.05em;
   text-decoration: none;
   color: inherit;
-  transition: color 0.2s ease;
+
+  &:hover {
+    color: inherit;
+  }
 }
 
 .kb-app-shell__logo:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 4px;
-}
-
-.kb-app-shell__logo:hover {
-  color: rgb(var(--v-theme-primary));
 }
 
 .kb-app-shell__nav-wrap {

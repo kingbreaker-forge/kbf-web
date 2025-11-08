@@ -5,6 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import vike from 'vike/plugin';
 import { defineConfig } from 'vite';
 import vuetify from 'vite-plugin-vuetify';
+import svg from 'vite-svg-loader';
 
 export default defineConfig({
   plugins: [
@@ -16,6 +17,7 @@ export default defineConfig({
     vueJsx(),
     // tailwindcss(),
     mdx({ providerImportSource: '@mdx-js/vue', jsxImportSource: 'vue' }),
+    svg(),
   ],
   build: {
     target: 'es2022',
