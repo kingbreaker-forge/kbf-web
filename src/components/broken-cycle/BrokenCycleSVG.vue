@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, useAttrs } from 'vue';
 
 const props = withDefaults(
   defineProps<{
@@ -13,6 +13,11 @@ const props = withDefaults(
     strokeColor: '',
   },
 );
+
+const passthroughAttrs = useAttrs();
+
+console.log('passthroughAttrs', { ...passthroughAttrs });
+
 const svgClasses = computed(() => ({
   animated: props.animated,
   broken: props.broken,
@@ -27,7 +32,14 @@ const strokeInlineStyle = computed(() => ({
 </script>
 
 <template>
-  <svg version="1.1" width="100px" height="50px" viewBox="-15 5 110 30" :class="svgClasses">
+  <svg
+    v-bind="passthroughAttrs"
+    version="1.1"
+    width="100px"
+    height="50px"
+    viewBox="-15 5 110 30"
+    :class="svgClasses"
+  >
     <g>
       <path
         id="cycle-left"
