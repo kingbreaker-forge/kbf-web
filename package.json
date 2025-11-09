@@ -12,6 +12,7 @@
   "dependencies": {
     "@vueuse/core": "^14.0.0",
     "remark-gfm": "^4.0.1",
+    "vike-metadata-vue": "^1.0.2",
     "vuetify": "^3.10.9"
   },
   "devDependencies": {

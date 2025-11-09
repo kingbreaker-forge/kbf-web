@@ -11,4 +11,10 @@ export default {
   },
 
   extends: [vikeVue],
+
+  meta: {
+    Metadata: {
+      env: { server: true, client: true },
+    },
+  },
 } satisfies Config;

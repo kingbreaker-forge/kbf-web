@@ -14,4 +14,6 @@ export default (pageContext: PageContext) => {
   app.use(vuetify);
 
   suppressSlotWarning(app);
+
+  console.log('(+onCreateApp) Vuetify has been added to the Vue app.');
 };

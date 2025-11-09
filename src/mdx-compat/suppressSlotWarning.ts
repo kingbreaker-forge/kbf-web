@@ -13,4 +13,8 @@ export default (app: App) => {
     }
     console.warn(`[Vue warn]: ${msg}${trace}`);
   };
+
+  console.warn(
+    "Suppressing 'Non-function value encountered for default slot' warnings in Vue app.",
+  );
 };

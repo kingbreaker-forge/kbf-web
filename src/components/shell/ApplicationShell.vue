@@ -1,22 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 
 import BrokenCycleSVG from '@kb-web/components/broken-cycle/BrokenCycleSVG.vue';
-import { useWindowScroll } from '@vueuse/core';
-import { VApp, VBtn, VContainer, VIcon, VParallax } from 'vuetify/components';
+import { VApp, VBtn, VContainer, VIcon } from 'vuetify/components';
 
-import { usePageBackground } from './pageBackground';
-
-const { backgroundURL } = usePageBackground();
-
-const { y: windowScrollY } = useWindowScroll();
-
-const backdropBlurStyle = computed(() => {
-  const blurAmount = Math.min(windowScrollY.value / 100 + 3, 15);
-  return {
-    backdropFilter: `blur(${blurAmount}px)`,
-  };
-});
+import ShellBackground from './ShellBackground.vue';
 
 const logoHovered = ref(false);
 const setLogoHovered = (hovered: boolean) => {
@@ -32,10 +20,7 @@ const setLogoHovered = (hovered: boolean) => {
 -->
 <template>
   <VApp class="kb-app-shell">
-    <VParallax class="parallax" :src="backgroundURL" :scale="0.5">
-      <div class="fill-height parallax-mask" :style="backdropBlurStyle" />
-    </VParallax>
-
+    <ShellBackground />
     <header class="header" role="banner">
       <VContainer class="brand">
         <a
@@ -85,25 +70,6 @@ const setLogoHovered = (hovered: boolean) => {
       padding-top: 4rem;
     }
   }
-}
-
-.parallax {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.parallax-mask {
-  background-image: repeating-linear-gradient(
-    -60deg,
-    rgba(75, 10, 10, 0.75),
-    rgba(75, 10, 10, 0.75) 5px,
-    rgba(0, 0, 0, 0.75) 5px,
-    rgba(0, 0, 0, 0.75) 10px
-  );
 }
 
 .header {

@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { usePageBackground } from '@kb-web/components/shell/pageBackground';
 import { VImg, VSheet } from 'vuetify/components';
 
-import AboutBackground from './background.jpg?url';
-
-const { setPageBackground } = usePageBackground();
-setPageBackground(AboutBackground);
+import HalloweenForging from './halloween-forging.jpg';
 </script>
 
 <template>
@@ -19,7 +15,7 @@ setPageBackground(AboutBackground);
       placerat eget fermentum quis, dictum ut quam.
     </p>
 
-    <VImg :src="AboutBackground" class="d-block w-75 float-md-right w-md-50" />
+    <VImg :src="HalloweenForging" class="d-block w-75 float-md-right w-md-50" />
 
     <p>
       Vivamus ut purus bibendum, auctor quam vel, molestie lorem. Quisque imperdiet leo non lacus
