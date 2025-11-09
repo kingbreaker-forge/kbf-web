@@ -64,4 +64,7 @@
   },
   "json.format.keepLines": true,
   "jsonc.format.keepLines": true,
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
 }

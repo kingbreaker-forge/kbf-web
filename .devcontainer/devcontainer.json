@@ -21,7 +21,8 @@
                 "yzhang.markdown-all-in-one",
                 "stylelint.vscode-stylelint",
                 "EditorConfig.EditorConfig",
-                "csstools.postcss"
+                "csstools.postcss",
+                "HashiCorp.terraform"
             ]
         }
     }

@@ -3,7 +3,6 @@
     "dev": "vike dev",
     "build": "vike build",
     "preview": "vike preview",
-    "dist-serve": "http-server ./dist -c-1",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
