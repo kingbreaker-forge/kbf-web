@@ -10,7 +10,6 @@ import useHtmlMeta from '@kb-web/useHtmlMeta';
 
 const htmlMeta = useHtmlMeta();
 useMetadata(htmlMeta.value);
-watchEffect(() => useMetadata(htmlMeta.value));
 </script>
 
 <template>
