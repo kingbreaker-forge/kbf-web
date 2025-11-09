@@ -1,22 +1,16 @@
-resource "aws_cloudfront_origin_access_identity" "site" {
-  comment = "Access identity for ${aws_s3_bucket.site.bucket}"
-}
-
 data "aws_iam_policy_document" "site_bucket" {
   statement {
     actions = [
       "s3:GetObject",
-      "s3:ListBucket",
     ]
 
     resources = [
-      aws_s3_bucket.site.arn,
       "${aws_s3_bucket.site.arn}/*",
     ]
 
     principals {
-      type        = "AWS"
-      identifiers = [aws_cloudfront_origin_access_identity.site.iam_arn]
+      type        = "*"
+      identifiers = ["*"]
     }
   }
 }
@@ -30,22 +24,26 @@ resource "aws_cloudfront_distribution" "site" {
   enabled             = true
   default_root_object = "index.html"
   price_class         = "PriceClass_100"
+  wait_for_deployment = true
 
   aliases = [var.domain_name]
 
   origin {
-    domain_name = aws_s3_bucket.site.bucket_regional_domain_name
-    origin_id   = "s3-origin"
+    domain_name = aws_s3_bucket_website_configuration.site.website_domain
+    origin_id   = "s3-website-origin"
 
-    s3_origin_config {
-      origin_access_identity = aws_cloudfront_origin_access_identity.site.cloudfront_access_identity_path
+    custom_origin_config {
+      http_port              = 80
+      https_port             = 443
+      origin_protocol_policy = "http-only"
+      origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
     }
   }
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "s3-origin"
+    target_origin_id = "s3-website-origin"
 
     compress = true
 
@@ -93,8 +91,8 @@ resource "aws_cloudfront_distribution" "site" {
   tags = local.tags
 
   depends_on = [
-    aws_s3_bucket_public_access_block.site,
     aws_s3_bucket_policy.site,
+    aws_s3_bucket_website_configuration.site,
     aws_acm_certificate_validation.site,
   ]
 }
