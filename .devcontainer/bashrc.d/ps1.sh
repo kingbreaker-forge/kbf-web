@@ -32,8 +32,6 @@ _ps1() {
     printf "$(_tput sgr0) ";
 }
 
-if [ -n "$TERM" ]; then
-  PS1="$(_ps1)";
-else
-  >&2 echo "TERM is not set; skipping PS1 customization.";
+if [[ $- == *i* && -n ${TERM:-} && $TERM != dumb ]] && tput colors >/dev/null 2>&1; then
+  PS1="$(_ps1)"
 fi
