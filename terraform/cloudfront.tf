@@ -29,7 +29,7 @@ resource "aws_cloudfront_distribution" "site" {
   aliases = [var.domain_name]
 
   origin {
-    domain_name = aws_s3_bucket_website_configuration.site.website_domain
+    domain_name = aws_s3_bucket_website_configuration.site.website_endpoint
     origin_id   = "s3-website-origin"
 
     custom_origin_config {
