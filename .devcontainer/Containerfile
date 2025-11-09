@@ -2,41 +2,36 @@ FROM docker.io/fedora:43
 
 ### System dependencies
 RUN dnf install -y \
-    bash-completion \
-    curl \
-    file \
-    git \
-    gnupg2 \
-    hostname \
-    iputils \
-    jq \
-    man-db \
-    ncurses \
-    npm \
-    openssh openssh-clients openssh-server \
-    python3 \
-    sudo \
-    vim \
-    wget \
-    xz
-
-# Install Hugo and specific tools
-
-RUN dnf install -y hugo && \
-    npm install -g markdownlint-cli blowfish-tools
+  bash-completion \
+  curl \
+  file \
+  git \
+  gnupg2 \
+  hostname \
+  iputils \
+  jq \
+  man-db \
+  ncurses \
+  npm \
+  openssh openssh-clients openssh-server \
+  python3 \
+  sudo \
+  vim \
+  wget \
+  xz
 
 # Extra bashrc, paths, etc
 COPY ./bashrc-load-dir.sh /etc/bashrc-load-dir.sh
 COPY ./bashrc.d /etc/.bashrc.d
 RUN printf '\n\
-    if [ -d /etc/.bashrc.d ]; then\n\
-    for rc in /etc/.bashrc.d/*; do\n\
-    if [ -f "$rc" ]; then\n\
-    . "$rc"\n\
-    fi\n\
-    done\n\
-    fi\n\
-    \n' >> /etc/bashrc
+  if [ -d /etc/.bashrc.d ]; then\n\
+  for rc in /etc/.bashrc.d/*; do\n\
+  if [ -f "$rc" ]; then\n\
+  . "$rc"\n\
+  fi\n\
+  done\n\
+  fi\n\
+  \n' >> /etc/bashrc
 
 # Set up 'developer' user, no password, with sudo
 RUN useradd -m -G wheel developer
