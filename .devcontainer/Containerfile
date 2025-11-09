@@ -16,9 +16,20 @@ RUN dnf install -y \
   openssh openssh-clients openssh-server \
   python3 \
   sudo \
+  unzip \
   vim \
   wget \
-  xz
+  xz \
+  zip
+
+# AWS CLI
+COPY install-aws.sh /opt/install-aws.sh
+RUN bash /opt/install-aws.sh
+
+# Terraform
+COPY install-terraform.sh /opt/install-terraform.sh
+RUN bash /opt/install-terraform.sh
+
 
 # Extra bashrc, paths, etc
 COPY ./bashrc-load-dir.sh /etc/bashrc-load-dir.sh
