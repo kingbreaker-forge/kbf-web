@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import usePageBackground from '@kb-web/usePageBackground';
 import { useWindowScroll } from '@vueuse/core';
 import { VParallax } from 'vuetify/components';
+
+import usePageBackground from '@kb-web/usePageBackground';
 
 const pageBackground = usePageBackground();
 

@@ -28,7 +28,7 @@ export default [
   //  - We also target .mdx directly for linting
   {
     files: ['**/*.mdx'],
-    ...mdxPlugin.configs.recommended,
+    ...mdxPlugin.configs.flatCodeBlocks,
   },
 
   // TypeScript (applies to .ts/.tsx and script blocks)

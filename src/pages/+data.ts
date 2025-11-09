@@ -1,7 +1,8 @@
-import type { DataSlice_HtmlMeta, HtmlMeta } from '@kb-web/useHtmlMeta';
-import type { DataSlice_PageBackground } from '@kb-web/usePageBackground';
 import { useData as vikeUseData } from 'vike-vue/useData';
 import { ConfigResolved, PageContextClient } from 'vike/types';
+
+import type { DataSlice_HtmlMeta, HtmlMeta } from '@kb-web/useHtmlMeta';
+import type { DataSlice_PageBackground } from '@kb-web/usePageBackground';
 
 interface CustomPageContext extends PageContextClient {
   config: ConfigResolved & {

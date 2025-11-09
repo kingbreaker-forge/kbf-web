@@ -1,6 +1,7 @@
-import suppressSlotWarning from '@kb-web/mdx-compat/suppressSlotWarning';
 import { PageContext } from 'vike/types';
 import { createVuetify } from 'vuetify';
+
+import suppressSlotWarning from '@kb-web/mdx-compat/suppressSlotWarning';
 
 import vuetifyConfiguration from './vuetifyConfiguration';
 

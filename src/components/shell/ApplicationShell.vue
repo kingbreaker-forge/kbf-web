@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import BrokenCycleSVG from '@kb-web/components/broken-cycle/BrokenCycleSVG.vue';
 import { VApp, VBtn, VContainer, VIcon } from 'vuetify/components';
+
+import BrokenCycleSVG from '@kb-web/components/broken-cycle/BrokenCycleSVG.vue';
 
 import ShellBackground from './ShellBackground.vue';
 

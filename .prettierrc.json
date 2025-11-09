@@ -5,10 +5,11 @@
   "semi": true,
   "trailingComma": "all",
   "arrowParens": "always",
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "plugins": [ "@trivago/prettier-plugin-sort-imports" ],
   "importOrder": [
     "^(vue|react)$",
     "<THIRD_PARTY_MODULES>",
+    "@kb-web/(.*)$",
     "^@/(.*)$",
     "^[./]"
   ],
