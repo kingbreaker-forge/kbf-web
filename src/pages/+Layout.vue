@@ -1,8 +1,16 @@
 <script setup lang="ts">
+import { watchEffect } from 'vue';
+
+import { useMetadata } from 'vike-metadata-vue';
 import 'vuetify/styles';
 
 import ApplicationShell from '@kb-web/components/shell/ApplicationShell.vue';
 import VuetifyMDXProvider from '@kb-web/mdx-compat/VuetifyMDXProvider.vue';
+import useHtmlMeta from '@kb-web/useHtmlMeta';
+
+const htmlMeta = useHtmlMeta();
+useMetadata(htmlMeta.value);
+watchEffect(() => useMetadata(htmlMeta.value));
 </script>
 
 <template>
