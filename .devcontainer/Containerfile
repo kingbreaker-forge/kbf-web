@@ -8,6 +8,7 @@ RUN dnf install -y \
   git \
   gnupg2 \
   hostname \
+  ImageMagick \
   iputils \
   jq \
   man-db \

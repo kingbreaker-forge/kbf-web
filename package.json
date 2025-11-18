@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "prebuild": "bash ./src/assets/favicon/gen-favicons.sh",
     "dev": "vike dev",
     "build": "vike build",
     "preview": "vike preview",
