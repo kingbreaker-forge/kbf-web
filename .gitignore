@@ -145,3 +145,6 @@ dist
 cdk.out
 
 .pnpm-store/
+
+__pycache__/
+*.pyc

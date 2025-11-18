@@ -1,3 +1,9 @@
+locals {
+  build_dir   = abspath("${path.root}/${var.dist_path}")
+  asset_files = sort(fileset(local.build_dir, "**"))
+  asset_hash  = sha1(join("", [for file in local.asset_files : filemd5("${local.build_dir}/${file}")]))
+}
+
 resource "aws_s3_object" "assets" {
   for_each = { for file in local.asset_files : file => file }
 
@@ -7,7 +13,7 @@ resource "aws_s3_object" "assets" {
   etag   = filemd5("${local.build_dir}/${each.key}")
 
   content_type = lookup(
-    local.mime_types,
+    var.mime_types,
     lower(element(reverse(split(".", basename(each.key))), 0)),
     "application/octet-stream",
   )
