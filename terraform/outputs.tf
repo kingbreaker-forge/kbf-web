@@ -22,3 +22,13 @@ output "custom_domain_name" {
   description = "Custom domain served by CloudFront."
   value       = var.domain_name
 }
+
+output "assets_bucket_name" {
+  description = "Name of the S3 bucket hosting static assets."
+  value       = aws_s3_bucket.assets.bucket
+}
+
+output "assets_cloudfront_domain_name" {
+  description = "Hostname to access assets via CloudFront."
+  value       = aws_cloudfront_distribution.assets.domain_name
+}

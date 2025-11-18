@@ -28,6 +28,12 @@ variable "bucket_name_override" {
   default     = "kingbreaker-web"
 }
 
+variable "assets_bucket_name" {
+  description = "Bucket name for hosting static assets."
+  type        = string
+  default     = "kingmaker-web-assets"
+}
+
 variable "tags" {
   description = "Additional tags to merge onto every resource."
   type        = map(string)
@@ -38,6 +44,12 @@ variable "domain_name" {
   description = "Public domain that should be served through CloudFront."
   type        = string
   default     = "kingbreakerforge.com"
+}
+
+variable "assets_domain_name" {
+  description = "Domain to serve static assets through CloudFront."
+  type        = string
+  default     = "assets.kingbreakerforge.com"
 }
 
 variable "hosted_zone_name" {

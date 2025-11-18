@@ -46,9 +46,11 @@ npm run typecheck  # vue-tsc project-wide type checking
    terraform plan \
      -var project_name="kbf-website" \
      -var environment="prod" \
-     -var aws_region="us-east-2"
-   terraform apply <same vars>
+     -var aws_region="us-east-2" \
+     -out kingbreaker.tfplan
+   terraform apply kingbreaker.tfplan
    ```
+
    - `dist_path`, `bucket_name_override`, `domain_name`, and `hosted_zone_name` are exposed as additional variables when needed.
    - `terraform apply` uploads the contents of `dist/` to the versioned S3 bucket, updates CloudFront, and triggers a full `/*` invalidation so the CDN serves the new build immediately.
 5. **State backup** – push the updated local state to the shared bucket after a successful apply:
