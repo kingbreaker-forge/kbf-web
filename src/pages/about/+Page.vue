@@ -5,39 +5,40 @@ import HalloweenForging from './halloween-forging.jpg';
 </script>
 
 <template>
-  <h1 class="text-h1">About Kingbreaker Forge</h1>
-  <VSheet elevated elevation="5" class="flex pa-3 ma-3 text-body-1 v-clearfix">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor ipsum eget ipsum
-      vestibulum, sed consequat purus volutpat. Fusce condimentum justo et sapien ultricies
-      condimentum. In hac habitasse platea dictumst. Praesent tempor dolor aliquet, scelerisque
-      neque in, finibus libero. Curabitur sed neque lacus. Etiam a turpis nunc. Etiam erat nisi,
-      placerat eget fermentum quis, dictum ut quam.
-    </p>
+  <VRow>
+    <VCol>
+      <h1 class="text-h3">About Kingbreaker Forge</h1>
+    </VCol>
+  </VRow>
+  <VRow>
+    <VCol cols="12" md="6">
+      <VSheet class="pa-3 mb-3 rounded-lg" elevation="2">
+        <h2 class="text-h4">Who</h2>
+        <p>Hi! My name is Filip. I am Kingbreaker Forge.</p>
+        <p>
+          A software engineer by trade (and a too-many-hobbies enthusiast in my free time), I got
+          into the blacksmithing hobby around 2022. I have no formal training; everything I know is
+          self-taught through books, videos, tips from others in the community, and trial-and-error
+          in the forge. I thrive on experimentation and pushing the envelope.
+        </p>
 
-    <VImg :src="HalloweenForging" class="d-block w-75 float-md-right w-md-50" />
+        <h2 class="text-h4">What</h2>
+        <p>
+          Kingbreaker Forge is a big name for a small forge. Its focus is on
+          <strong>bladesmithing</strong> &mdash; primarily knives. These are made in a
+          historically-conscious fashion, with the goal of creating unique, traditional, and high
+          performance blades.
+        </p>
+        <p>This website is a place for you to see what I'm up to!</p>
 
-    <p>
-      Vivamus ut purus bibendum, auctor quam vel, molestie lorem. Quisque imperdiet leo non lacus
-      varius laoreet. Sed et varius velit. Nullam vestibulum quam nunc, ut semper nulla efficitur
-      et. Sed a convallis lorem, rutrum sagittis dui. Nulla cursus fringilla efficitur. Cras et
-      justo eget lacus rutrum ornare. In et eleifend ipsum. Vivamus pretium placerat congue. Nam
-      varius, nunc sed egestas faucibus, quam tortor sollicitudin urna, nec suscipit eros arcu vitae
-      quam. Aliquam tristique justo a turpis lobortis consequat. Quisque vel tincidunt dui. Maecenas
-      venenatis ante enim.
-    </p>
-    <p>
-      Suspendisse vitae pellentesque justo, at blandit est. Maecenas quis nisl nisl. Phasellus
-      venenatis est id mi pretium, at rhoncus sapien pulvinar. In dictum sodales nisi at aliquam.
-      Etiam interdum aliquam mi, vel rutrum ligula viverra eu. Sed tempor pellentesque rhoncus.
-      Proin fermentum, lacus sed vestibulum mollis, nunc sem porta dui, non volutpat risus sem eget
-      lorem. Nullam lacinia elit neque, fermentum pellentesque nisi elementum eu. Nam vel luctus
-      justo. Quisque sapien dolor, mattis id rutrum at, ultrices a purus. Aliquam placerat lobortis
-      massa in lacinia.
-    </p>
-
-    <div style="clear: both"></div>
-  </VSheet>
+        <h2 class="text-h4">Where</h2>
+        <p>Kingbreaker Forge is based in a backyard in the suburbs of Manassas, Virginia, USA.</p>
+      </VSheet>
+    </VCol>
+    <VCol>
+      <VImg cover :src="HalloweenForging" class="rounded-lg" />
+    </VCol>
+  </VRow>
 </template>
 
 <style scoped lang="scss">
