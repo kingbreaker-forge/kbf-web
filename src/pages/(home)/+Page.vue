@@ -6,7 +6,7 @@ import { useDisplay } from 'vuetify';
 import BlogArticleCard from '@kb-web/components/blog-article-card/BlogArticleCard.vue';
 import { useBlogArticles } from '@kb-web/useBlog';
 
-const { smAndUp } = useDisplay();
+const { mdAndUp } = useDisplay();
 
 const blogArticles = useBlogArticles();
 const latestBlogArticle = computed(
@@ -15,14 +15,14 @@ const latestBlogArticle = computed(
 </script>
 
 <template>
-  <VRow>
+  <VRow v-if="mdAndUp">
     <VCol>
       <h1 class="text-h2">Welcome to Kingbreaker Forge</h1>
     </VCol>
   </VRow>
 
   <VRow>
-    <VCol :cols="smAndUp ? 6 : 12">
+    <VCol :cols="mdAndUp ? 6 : 12">
       <p class="text-h4">Latest News</p>
       <BlogArticleCard :articleId="latestBlogArticle.id || 'ID-MISSING'" />
       <div class="mt-4 d-flex justify-center">
@@ -31,11 +31,11 @@ const latestBlogArticle = computed(
         </VBtn>
       </div>
     </VCol>
-    <VCol :cols="smAndUp ? 6 : 12">
+    <VCol :cols="mdAndUp ? 6 : 12">
       <p class="text-h4">Showcase</p>
       <VCard>
-        <VCardTitle>
-          <h2 class="text-h4">Forged Stuff Goes Here</h2>
+        <VCardTitle density="comfortable">
+          <h3 class="text-h5">Forged Stuff Goes Here</h3>
         </VCardTitle>
         <VCardText>
           <VAlert type="info" variant="outlined" class="mb-4">

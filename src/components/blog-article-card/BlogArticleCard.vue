@@ -33,7 +33,7 @@ const article = blogArticles.value.find((a) => a.id === props.articleId);
       </p>
       <VCardSubtitle class="d-flex justify-end">
         <span class="text-subtitle-2">
-          {{ article.authors[0] }} @ {{ new Date(article.date).toLocaleDateString() }}
+          {{ article.authors[0] }} @ {{ article.date.toLocaleDateString() }}
         </span>
       </VCardSubtitle>
     </VCardText>
