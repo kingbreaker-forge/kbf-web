@@ -6,6 +6,6 @@ export default {
     authors: ['Filip Sufitchi', 'Kingbreaker Forge'],
     date: new Date('2024-06-15'),
     summary: 'Announcing the launch of our new platform!',
-    coverImageUrl: 'https://example.com/images/launch-cover.jpg',
+    // coverImageUrl: 'https://example.com/images/launch-cover.jpg',
   } satisfies BlogArticle,
 };

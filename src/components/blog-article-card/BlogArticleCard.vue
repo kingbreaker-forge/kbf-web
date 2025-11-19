@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useBlogArticles } from '@kb-web/useBlog';
 
-import DefaultCoverImage from './default-cover.png';
+import DefaultCoverImage from './default-cover.jpg';
 
 const props = defineProps<{ articleId: string }>();
 const blogArticles = useBlogArticles();
@@ -14,7 +14,12 @@ const article = blogArticles.value.find((a) => a.id === props.articleId);
     <VCardTitle>
       <h3 class="text-h5">{{ article.title }}</h3>
     </VCardTitle>
-    <VImg cover :src="article.coverImageUrl" :alt="article.title" height="12em">
+    <VImg
+      cover
+      :src="article.coverImageUrl || DefaultCoverImage"
+      :alt="article.title"
+      height="12em"
+    >
       <template #placeholder>
         <VSkeletonLoader type="image" height="12em" />
       </template>
