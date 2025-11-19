@@ -47,7 +47,7 @@ const setLogoHovered = (hovered: boolean) => {
       </div>
     </header>
     <main>
-      <VContainer class="mx-auto">
+      <VContainer>
         <slot />
       </VContainer>
     </main>

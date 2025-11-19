@@ -12,7 +12,7 @@ export default defineConfig({
     vike(),
     vue(),
     vuetify({
-      autoImport: false,
+      autoImport: true,
     }),
     vueJsx(),
     mdx({

@@ -67,4 +67,6 @@
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },
+  "vue.editor.focusMode": false,
+  "vue.suggest.componentNameCasing": "alwaysPascalCase",
 }
