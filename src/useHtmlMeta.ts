@@ -10,12 +10,7 @@ export type HtmlMeta = UseMetadataParams;
 export const htmlMetaDefaults: HtmlMeta = {
   title: 'Kingbreaker Forge',
   description: 'Kingbreaker Forge is an amateur artisanal bladesmith. Custom knives here!',
-  // keywords: ['kingbreaker', 'forge', 'blacksmith', 'custom', 'swords', 'knives', 'medieval'],
   authors: [{ name: 'Kingbreaker Forge' }],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
 };
 
 export interface DataSlice_HtmlMeta {
