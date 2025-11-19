@@ -3,28 +3,24 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import shlex
 import subprocess
 import sys
 from pathlib import Path
-from typing import Any, Iterable, List, Optional, Sequence
+from typing import Any, Dict, Iterable, List, Optional, Sequence
 from urllib.parse import quote
-
-
-DRYRUN = os.environ.get("DRYRUN", "0") == "1"
 
 
 def log_cmd(args: Sequence[str]) -> None:
     printable = " ".join(shlex.quote(a) for a in args)
-    prefix = "[DRYRUN] " if DRYRUN else "+ "
+    prefix = "+ "
     print(f"{prefix}{printable}")
 
 
 def run_cmd(args: Sequence[str], capture_output: bool = False, allow_dryrun: bool = True) -> str:
     log_cmd(args)
-    if DRYRUN and allow_dryrun:
+    if allow_dryrun and _CONTEXT.get("dry", False):
         return ""
     result = subprocess.run(
         args,
@@ -100,27 +96,7 @@ def format_table(rows: Iterable[Sequence[str]]) -> str:
     return "\n".join(lines)
 
 
-def gather_outputs(terraform_dir: Path, required: Sequence[str], optional: Sequence[str] = ()) -> dict[str, str]:
-    outputs = terraform_outputs(terraform_dir)
-    values: dict[str, str] = {}
-
-    for name in required:
-        value = outputs.get(name, {}).get("value")
-        if value in (None, ""):
-            print(
-                f"Terraform output '{name}' is missing or empty. "
-                "Run 'terraform apply' to populate outputs.",
-                file=sys.stderr,
-            )
-            sys.exit(1)
-        values[name] = str(value)
-
-    for name in optional:
-        value = outputs.get(name, {}).get("value")
-        if value not in (None, ""):
-            values[name] = str(value)
-
-    return values
+_CONTEXT: Dict[str, Any] = {"dry": False}
 
 
 def cmd_cp(terraform_dir: Path, local_path: str, remote_path: str) -> None:
@@ -205,6 +181,11 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         help="Path to terraform configuration (default: ./terraform next to this script).",
     )
+    parser.add_argument(
+        "--dry",
+        action="store_true",
+        help="Print write operations instead of executing them.",
+    )
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -231,6 +212,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parser.parse_args(argv)
 
     terraform_dir: Path = args.terraform_dir
+
+    _CONTEXT["dry"] = bool(getattr(args, "dry", False))
 
     try:
         if args.command == "cp":

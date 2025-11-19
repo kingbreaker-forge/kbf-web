@@ -7,7 +7,7 @@ Static site for Kingbreaker Forge, the personal bladesmithing/blacksmithing bran
 - **App framework** – [Vike](https://vike.dev) for file-based routing + server integration, powered by Vue 3 and Vuetify for the component layer.
 - **Content** – MDX (via `@mdx-js/vue` and `remark-gfm`) mixes Markdown with Vue/TSX snippets for rich storytelling.
 - **Tooling** – TypeScript, Vite 7, ESLint/Prettier, Stylelint, and vue-tsc keep the codebase typed, linted, and consistently formatted.
-- **Automation** – Terraform (in `terraform/`) provisions the AWS S3 + CloudFront stack and handles deploy-time object uploads + CloudFront invalidations.
+- **Automation** – Terraform (in `terraform/`) provisions the AWS S3 + CloudFront stacks (main site + assets), uploads build output, and triggers CloudFront invalidations.
 - **Environment** – VS Code Dev Containers backed by a Fedora-based image that preinstalls Node/npm, the AWS CLI, Terraform, and editor extensions.
 
 ## Development Environment
@@ -31,35 +31,39 @@ npm run typecheck  # vue-tsc project-wide type checking
 
 `dist/` is treated as disposable output and is regenerated on every build.
 
-## Deployment (AWS S3 + CloudFront)
+## Deployment (Terraform + AWS)
 
-1. **Build** – run `npm run build` first; Terraform syncs whatever is in `dist/`.
-2. **Credentials** – configure the AWS CLI (`aws configure` or `aws configure --profile <name>`) so Terraform and the helper scripts can access S3, CloudFront, ACM (us-east-1), and Route53.
-3. **State sync (optional)** – pull the latest state before making changes:
-   ```bash
-   cd terraform
-   ./download_state.sh          # STATE_PREFIX overrides default kbf-website
-   ```
-4. **Terraform workflow** – inside `terraform/`:
-   ```bash
-   terraform init
-   terraform plan \
-     -var project_name="kbf-website" \
-     -var environment="prod" \
-     -var aws_region="us-east-2" \
-     -out kingbreaker.tfplan
-   terraform apply kingbreaker.tfplan
-   ```
+### Backend (state)
+- Terraform state is stored remotely in S3 (`kingbreaker-web-tf`, key `state/terraform.tfstate`, region `us-east-2`) with a DynamoDB lock table (`kingbreaker-web-tf-locks`).
+- Run once if the lock table doesn’t exist: `cd terraform && ./bootstrap_backend.sh` (creates the table with tags).
+- `terraform init -migrate-state` will migrate local state into the backend; `terraform init` afterwards will use the remote state automatically.
 
-   - `dist_path`, `bucket_name_override`, `domain_name`, and `hosted_zone_name` are exposed as additional variables when needed.
-   - `terraform apply` uploads the contents of `dist/` to the versioned S3 bucket, updates CloudFront, and triggers a full `/*` invalidation so the CDN serves the new build immediately.
-5. **State backup** – push the updated local state to the shared bucket after a successful apply:
-   ```bash
-   ./upload_state.sh
-   ```
-   The helper scripts read/write from `s3://kingbreaker-web-tf/<STATE_PREFIX>/terraform.tfstate*` in `us-east-2`. Both scripts honor `STATE_PREFIX` so you can keep parallel environments (e.g., `STATE_PREFIX=staging ./upload_state.sh`).
+### Main site + assets
+- Modules: `modules/web` (site bucket/CF/DNS/upload/invalidation) and `modules/assets` (assets bucket/CF/DNS).
+- Root outputs expose nested module objects (`terraform output -json web`, `terraform output -json assets`).
+- Build first: `npm run build` (writes to `dist/`; web module uploads this path).
+- Typical workflow:
+  ```bash
+  cd terraform
+  terraform init              # after backend bootstrap
+  terraform plan -out tfplan
+  terraform apply tfplan
+  ```
+  The web module uploads `dist/` to the web bucket and triggers a CloudFront invalidation only when object etags change. Assets stack is managed separately (no automatic uploads).
 
-## Notes
+## Asset management helper
 
-- Terraform state files are intentionally ignored by Git; always rely on the helper scripts or your own remote backend to keep them synchronized.
-- Additional documentation about content or component patterns will land later—this README focuses on environment, tooling, and deployment only.
+`./kbf-assets.py` is a Python 3.12+ CLI (stdlib only) that wraps AWS + Terraform outputs for the assets bucket/CDN.
+
+Usage:
+- `python kbf-assets.py cp <local> <remote>` – upload file to `s3://assets_bucket/<remote>`
+- `python kbf-assets.py ls [prefix]` – recursive list with key, size, mtime, and URL (uses custom domain if set)
+- `python kbf-assets.py grep <pattern>` – regex match keys
+- `python kbf-assets.py rm <object>` – delete object
+- `python kbf-assets.py publish` – CloudFront invalidation for assets distribution
+
+Options:
+- `--terraform-dir` (default `./terraform` next to the script)
+- `--dry` to print writes instead of executing
+
+It reads the `assets` module outputs from Terraform (`terraform output -json assets`), so ensure the state/backend is initialized and up to date before using it.
