@@ -1,7 +1,6 @@
 locals {
   build_dir   = abspath("${path.root}/${var.dist_path}")
   asset_files = sort(fileset(local.build_dir, "**"))
-  asset_hash  = sha1(join("", [for file in local.asset_files : filemd5("${local.build_dir}/${file}")]))
 }
 
 resource "aws_s3_object" "assets" {
@@ -25,8 +24,10 @@ resource "aws_s3_object" "assets" {
 
 resource "null_resource" "cloudfront_invalidation" {
   triggers = {
-    distribution_id = aws_cloudfront_distribution.site.id
-    asset_hash      = local.asset_hash
+    distribution_id  = aws_cloudfront_distribution.site.id
+    content_etag_hash = sha1(join("", [
+      for k in sort(keys(aws_s3_object.assets)) : aws_s3_object.assets[k].etag
+    ]))
   }
 
   provisioner "local-exec" {

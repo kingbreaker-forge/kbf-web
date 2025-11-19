@@ -85,7 +85,13 @@ data "aws_iam_policy_document" "assets_bucket" {
     condition {
       test     = "StringEquals"
       variable = "AWS:SourceArn"
-      values   = [aws_cloudfront_distribution.assets.arn]
+      values = [
+        format(
+          "arn:aws:cloudfront::%s:distribution/%s",
+          data.aws_caller_identity.current.account_id,
+          aws_cloudfront_distribution.assets.id,
+        )
+      ]
     }
   }
 }
@@ -114,6 +120,8 @@ resource "aws_cloudfront_distribution" "assets" {
     domain_name              = aws_s3_bucket.assets.bucket_regional_domain_name
     origin_id                = "assets-s3-origin"
     origin_access_control_id = aws_cloudfront_origin_access_control.assets.id
+    connection_attempts      = 3
+    connection_timeout       = 10
 
     s3_origin_config {
       origin_access_identity = ""
@@ -170,6 +178,12 @@ resource "aws_cloudfront_distribution" "assets" {
 
   tags = var.tags
 
+  lifecycle {
+    ignore_changes = [
+      origin, # provider sometimes normalizes the origin block; avoid perpetual churn
+    ]
+  }
+
   depends_on = [
     aws_acm_certificate_validation.assets,
   ]
@@ -213,6 +227,8 @@ resource "aws_acm_certificate_validation" "assets" {
   certificate_arn         = aws_acm_certificate.assets.arn
   validation_record_fqdns = [for record in aws_route53_record.assets_certificate_validation : record.fqdn]
 }
+
+data "aws_caller_identity" "current" {}
 
 resource "aws_route53_record" "assets_alias" {
   zone_id = data.aws_route53_zone.assets.zone_id
