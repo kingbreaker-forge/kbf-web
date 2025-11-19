@@ -40,9 +40,3 @@ import HalloweenForging from './halloween-forging.jpg';
     </VCol>
   </VRow>
 </template>
-
-<style scoped lang="scss">
-img {
-  margin: 3rem;
-}
-</style>
