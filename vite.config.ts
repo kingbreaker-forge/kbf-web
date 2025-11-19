@@ -13,9 +13,6 @@ export default defineConfig({
     vue(),
     vuetify({
       autoImport: true,
-      styles: {
-        configFile: 'src/styles/vuetifySettings.scss',
-      },
     }),
     vueJsx(),
     mdx({

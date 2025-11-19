@@ -1,3 +1,18 @@
-@use 'vuetify/styles';
+@use '@fontsource/cinzel';
+@use '@fontsource/alegreya';
+// @use '@fontsource/roboto';
 
-@use '@fontsource/roboto';
+@forward 'vuetify/settings' with (
+  $font-size-root: 1.1rem,
+
+  $body-font-family: (
+    Alegreya,
+    serif,
+  ),
+  $heading-font-family: (
+    Cinzel,
+    serif,
+  )
+);
+
+@use 'vuetify/styles';

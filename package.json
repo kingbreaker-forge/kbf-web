@@ -10,6 +10,8 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
+    "@fontsource/alegreya": "^5.2.8",
+    "@fontsource/cinzel": "^5.2.8",
     "@fontsource/roboto": "^5.2.8",
     "@vueuse/core": "^14.0.0",
     "remark-gfm": "^4.0.1",

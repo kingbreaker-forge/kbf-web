@@ -15,7 +15,7 @@ const setLogoHovered = (hovered: boolean) => {
 };
 
 const appBarTitleClasses = computed(() =>
-  mdAndUp.value ? ['d-flex', 'justify-center', 'text-h4'] : ['text-h4'],
+  mdAndUp.value ? ['d-flex', 'justify-center', 'text-h4'] : [],
 );
 
 const mobileMenuOpen = ref<boolean>(false);
