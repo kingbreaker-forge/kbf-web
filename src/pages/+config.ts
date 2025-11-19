@@ -16,5 +16,8 @@ export default {
     Metadata: {
       env: { server: true, client: true },
     },
+    BlogArticles: {
+      env: { server: true, client: true },
+    },
   },
 } satisfies Config;

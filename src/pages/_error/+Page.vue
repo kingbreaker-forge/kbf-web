@@ -71,7 +71,7 @@ function reloadPage() {
 
     <template v-else>
       <VCardTitle>
-        <VChip color="error">404</VChip>
+        <VChip color="error">500</VChip>
         We cracked an anvil!
       </VCardTitle>
       <VCardText>

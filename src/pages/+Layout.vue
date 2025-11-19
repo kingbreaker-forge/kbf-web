@@ -9,6 +9,7 @@ import VuetifyMDXProvider from '@kb-web/mdx-compat/VuetifyMDXProvider.vue';
 import useHtmlMeta from '@kb-web/useHtmlMeta';
 
 const htmlMeta = useHtmlMeta();
+console.log('(Global +Layout) htmlMeta:', htmlMeta.value);
 useMetadata(htmlMeta.value);
 </script>
 
