@@ -21,5 +21,6 @@ import FaviconICO from '@kb-web/assets/favicon/gen/favicon.ico';
     <link rel="icon" type="image/png" :href="FaviconPNG128" sizes="128x128" />
     <link rel="icon" type="image/png" :href="FaviconPNG256" sizes="256x256" />
     <link rel="icon" type="image/png" :href="FaviconPNG512" sizes="512x512" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
 </template>
