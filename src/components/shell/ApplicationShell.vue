@@ -27,7 +27,7 @@ const mobileMenuOpen = ref<boolean>(false);
       <ShellBackground />
     </div>
 
-    <VAppBar color="secondary">
+    <VAppBar color="surface" elevation="3">
       <template #prepend>
         <VAppBarNavIcon
           :class="mdAndUp ? 'd-none' : ''"
@@ -58,7 +58,13 @@ const mobileMenuOpen = ref<boolean>(false);
       </template>
     </VAppBar>
 
-    <VNavigationDrawer v-model="mobileMenuOpen" temporary scrim :class="mdAndUp ? 'd-none' : ''">
+    <VNavigationDrawer
+      v-model="mobileMenuOpen"
+      temporary
+      scrim
+      :class="mdAndUp ? 'd-none' : ''"
+      color="surface"
+    >
       <VList>
         <VListItem link href="/about" @click="mobileMenuOpen = false">About</VListItem>
         <VListItem link href="/blog" @click="mobileMenuOpen = false">Blog</VListItem>

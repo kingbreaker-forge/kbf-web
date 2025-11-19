@@ -10,7 +10,7 @@ const pageBackground = usePageBackground();
 
 const { y: windowScrollY } = useWindowScroll();
 const backdropBlurStyle = computed(() => {
-  const blurAmount = Math.min(windowScrollY.value / 100 + 3, 15);
+  const blurAmount = Math.min(windowScrollY.value / 100 + 2, 15);
   return {
     backdropFilter: `blur(${blurAmount}px)`,
   };

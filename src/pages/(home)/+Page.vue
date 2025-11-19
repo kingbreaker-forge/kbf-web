@@ -26,7 +26,7 @@ const latestBlogArticle = computed(
       <p class="text-h4">Latest News</p>
       <BlogArticleCard :articleId="latestBlogArticle.id || 'ID-MISSING'" />
       <div class="mt-4 d-flex justify-center">
-        <VBtn href="/blog">
+        <VBtn href="/blog" color="primary">
           <strong>Read More Articles</strong>
         </VBtn>
       </div>
@@ -38,7 +38,7 @@ const latestBlogArticle = computed(
           <h3 class="text-h5">Forged Stuff Goes Here</h3>
         </VCardTitle>
         <VCardText>
-          <VAlert type="info" variant="outlined" class="mb-4">
+          <VAlert type="info" color="success" variant="outlined" class="mb-4">
             This is a placeholder for inventory content. Stay tuned for updates!
           </VAlert>
           <VSkeletonLoader type="article" />
@@ -46,7 +46,7 @@ const latestBlogArticle = computed(
       </VCard>
 
       <div class="mt-4 d-flex justify-center">
-        <VBtn href="/blog">
+        <VBtn href="/blog" color="primary">
           <strong>Browse All Pieces</strong>
         </VBtn>
       </div>
