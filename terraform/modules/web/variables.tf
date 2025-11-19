@@ -1,16 +1,31 @@
-variable "bucket_name" {
-  description = "Bucket name for hosting the web site."
+variable "project_name" {
+  description = "Human friendly name for the main site, used for tagging and naming."
   type        = string
+  default     = "Kingbreaker Web"
+}
+
+variable "environment" {
+  description = "Deployment environment string appended to main site resource names."
+  type        = string
+  default     = "prod"
+}
+
+variable "bucket_name_override" {
+  description = "Optional explicit bucket name for the main site. Leave blank to derive."
+  type        = string
+  default     = "kingbreaker-web"
 }
 
 variable "domain_name" {
   description = "Public domain served through CloudFront."
   type        = string
+  default     = "kingbreakerforge.com"
 }
 
 variable "hosted_zone_name" {
   description = "Route53 hosted zone name (must end with a dot) where records live."
   type        = string
+  default     = "kingbreakerforge.com."
 }
 
 variable "tags" {

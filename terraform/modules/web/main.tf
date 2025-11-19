@@ -1,5 +1,9 @@
+locals {
+  bucket_name = var.bucket_name_override != "" ? var.bucket_name_override : lower("${var.project_name}-${var.environment}-site")
+}
+
 resource "aws_s3_bucket" "site" {
-  bucket = var.bucket_name
+  bucket = local.bucket_name
   tags   = var.tags
 
   lifecycle {
