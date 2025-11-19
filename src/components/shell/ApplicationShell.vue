@@ -49,7 +49,7 @@ const mobileMenuOpen = ref<boolean>(false);
         </a>
       </VAppBarTitle>
 
-      <template #extension v-if="mdAndUp">
+      <template v-if="mdAndUp" #extension>
         <div class="d-flex justify-center w-100">
           <VBtn variant="text" href="/about">About</VBtn>
           <VBtn variant="text" href="/blog">Blog</VBtn>

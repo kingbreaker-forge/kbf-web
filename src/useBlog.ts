@@ -1,4 +1,4 @@
-import { computed, readonly, ref } from 'vue';
+import { computed } from 'vue';
 
 import { useData } from 'vike-vue/useData';
 import { usePageContext } from 'vike-vue/usePageContext';
