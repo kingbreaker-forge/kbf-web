@@ -1,32 +1,11 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-
-import { VCard, VImg, VNoSsr } from 'vuetify/components';
+import BlowupImg from '@kb-web/components/BlowupImg.vue';
 
 const props = defineProps<{ src: string }>();
-const imgSrc = computed(() => props.src);
-
-const showDialog = ref(false);
 </script>
 
 <template>
-  <VCard variant="outlined" max-width="50%" class="mx-auto" @click="showDialog = true">
-    <VImg v-bind="$attrs" :src="imgSrc" cover />
+  <VCard variant="outlined" max-width="50%" class="mx-auto">
+    <BlowupImg v-bind="$attrs" :src="props.src" />
   </VCard>
-  <VNoSsr>
-    <VDialog v-model="showDialog" max-width="85%">
-      <VCard>
-        <VCardActions>
-          <VBtn variant="elevated" color="secondary" :href="imgSrc" target="_blank">
-            Open in New Window
-            <VIcon icon="mdi-open-in-new" />
-          </VBtn>
-          <VBtn variant="text" icon="mdi-close" @click="showDialog = false" />
-        </VCardActions>
-        <VCardText>
-          <VImg v-bind="$attrs" :src="imgSrc" style="max-height: 75vh" />
-        </VCardText>
-      </VCard>
-    </VDialog>
-  </VNoSsr>
 </template>
