@@ -8,48 +8,48 @@ import * as C from './components';
 
 const components = {
   // Headings
-  h1: C.VH1,
-  h2: C.VH2,
-  h3: C.VH3,
-  h4: C.VH4,
-  h5: C.VH5,
-  h6: C.VH6,
+  h1: C.VMDX_H1,
+  h2: C.VMDX_H2,
+  h3: C.VMDX_H3,
+  h4: C.VMDX_H4,
+  h5: C.VMDX_H5,
+  h6: C.VMDX_H6,
 
   // // Paragraphs & inline
-  p: C.VP,
-  strong: C.VStrong,
-  em: C.VEm,
-  del: C.VDel,
-  code: C.VCodeInline,
-  inlineCode: C.VCodeInline,
+  p: C.VMDX_P,
+  strong: C.VMDX_Strong,
+  em: C.VMDX_Em,
+  del: C.VMDX_Del,
+  code: C.VMDX_CodeInline,
+  inlineCode: C.VMDX_CodeInline,
 
   // Links & images
-  a: C.VA,
-  img: C.VMDXImg,
+  a: C.VMDX_A,
+  img: C.VMDX_Img,
 
   // Lists
-  ul: C.VUl,
-  ol: C.VOl,
-  li: C.VLi,
+  ul: C.VMDX_Ul,
+  ol: C.VMDX_Ol,
+  li: C.VMDX_Li,
 
   // Code blocks
-  pre: C.VCodeBlock,
+  pre: C.VMDX_CodeBlock,
 
   // Blockquote, hr, tables
-  blockquote: C.VBlockquote,
-  hr: C.VHr,
-  table: C.VTable,
-  thead: C.VThead,
-  tbody: C.VTbody,
-  tr: C.VTr,
-  th: C.VTh,
-  td: C.VTd,
+  blockquote: C.VMDX_Blockquote,
+  hr: C.VMDX_Hr,
+  table: C.VMDX_Table,
+  thead: C.VMDX_Thead,
+  tbody: C.VMDX_Tbody,
+  tr: C.VMDX_Tr,
+  th: C.VMDX_Th,
+  td: C.VMDX_Td,
 
   // Structural fallbacks
-  section: C.VSection,
-  header: C.VHeader,
-  footer: C.VFooter,
-  div: C.VDiv,
+  section: C.VMDX_Section,
+  header: C.VMDX_Header,
+  footer: C.VMDX_Footer,
+  div: C.VMDX_Div,
 } satisfies Record<string, Component>;
 </script>
 <template>

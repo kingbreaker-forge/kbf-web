@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <tbody class="text-body-2" v-bind="$attrs">
     <slot />

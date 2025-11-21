@@ -1,29 +1,34 @@
-export { default as VH1 } from './VH1.vue';
-export { default as VH2 } from './VH2.vue';
-export { default as VH3 } from './VH3.vue';
-export { default as VH4 } from './VH4.vue';
-export { default as VH5 } from './VH5.vue';
-export { default as VH6 } from './VH6.vue';
-export { default as VP } from './VP.vue';
-export { default as VStrong } from './VStrong.vue';
-export { default as VEm } from './VEm.vue';
-export { default as VDel } from './VDel.vue';
-export { default as VCodeInline } from './VCodeInline.vue';
-export { default as VA } from './VA.vue';
-export { default as VMDXImg } from './VMDXImg.vue';
-export { default as VUl } from './VUl.vue';
-export { default as VOl } from './VOl.vue';
-export { default as VLi } from './VLi.vue';
-export { default as VCodeBlock } from './VCodeBlock.vue';
-export { default as VBlockquote } from './VBlockquote.vue';
-export { default as VHr } from './VHr.vue';
-export { default as VTable } from './VTable.vue';
-export { default as VThead } from './VThead.vue';
-export { default as VTbody } from './VTbody.vue';
-export { default as VTr } from './VTr.vue';
-export { default as VTh } from './VTh.vue';
-export { default as VTd } from './VTd.vue';
-export { default as VSection } from './VSection.vue';
-export { default as VHeader } from './VHeader.vue';
-export { default as VFooter } from './VFooter.vue';
-export { default as VDiv } from './VDiv.vue';
+export { default as VMDX_H1 } from './VMDX_H1.vue';
+export { default as VMDX_H2 } from './VMDX_H2.vue';
+export { default as VMDX_H3 } from './VMDX_H3.vue';
+export { default as VMDX_H4 } from './VMDX_H4.vue';
+export { default as VMDX_H5 } from './VMDX_H5.vue';
+export { default as VMDX_H6 } from './VMDX_H6.vue';
+
+export { default as VMDX_P } from './VMDX_P.vue';
+export { default as VMDX_Strong } from './VMDX_Strong.vue';
+export { default as VMDX_Em } from './VMDX_Em.vue';
+export { default as VMDX_Del } from './VMDX_Del.vue';
+export { default as VMDX_CodeInline } from './VMDX_CodeInline.vue';
+
+export { default as VMDX_A } from './VMDX_A.vue';
+export { default as VMDX_Img } from './VMDX_Img.vue';
+
+export { default as VMDX_Ul } from './VMDX_Ul.vue';
+export { default as VMDX_Ol } from './VMDX_Ol.vue';
+export { default as VMDX_Li } from './VMDX_Li.vue';
+
+export { default as VMDX_CodeBlock } from './VMDX_CodeBlock.vue';
+export { default as VMDX_Blockquote } from './VMDX_Blockquote.vue';
+export { default as VMDX_Hr } from './VMDX_Hr.vue';
+export { default as VMDX_Table } from './VMDX_Table.vue';
+export { default as VMDX_Thead } from './VMDX_Thead.vue';
+export { default as VMDX_Tbody } from './VMDX_Tbody.vue';
+export { default as VMDX_Tr } from './VMDX_Tr.vue';
+export { default as VMDX_Th } from './VMDX_Th.vue';
+export { default as VMDX_Td } from './VMDX_Td.vue';
+
+export { default as VMDX_Section } from './VMDX_Section.vue';
+export { default as VMDX_Header } from './VMDX_Header.vue';
+export { default as VMDX_Footer } from './VMDX_Footer.vue';
+export { default as VMDX_Div } from './VMDX_Div.vue';
