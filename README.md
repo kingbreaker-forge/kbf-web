@@ -49,6 +49,7 @@ npm run typecheck  # vue-tsc project-wide type checking
   terraform plan -out tfplan
   terraform apply tfplan
   ```
+  Or from the repo root use the shortcut `npm run terraform-publish` to run `terraform init && terraform apply` inside `terraform/` (handy for quick updates; still interactive and expects backend/state prepped).
   The web module uploads `dist/` to the web bucket and triggers a CloudFront invalidation only when object etags change. Assets stack is managed separately (no automatic uploads).
 
 ## Asset management helper
