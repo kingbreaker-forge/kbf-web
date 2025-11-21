@@ -1,12 +1,30 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import { useDisplay } from 'vuetify';
 
 import BlowupImg from '@kb-web/components/BlowupImg.vue';
 import useInventory from '@kb-web/useInventory';
 
-const { mdAndUp } = useDisplay();
+const { mdAndUp, lgAndUp } = useDisplay();
 
 const currentInventoryPiece = useInventory();
+
+const galleryCols = computed<number>(() => {
+  // Special cases for 0, 1, and 2 gallery images
+  if (!currentInventoryPiece.value?.galleryUrls?.length) {
+    return 12;
+  }
+  if (currentInventoryPiece.value?.galleryUrls?.length === 1) {
+    return 12;
+  }
+  if (currentInventoryPiece.value?.galleryUrls?.length === 2) {
+    return mdAndUp ? 6 : 12;
+  }
+
+  // If 3+ gallery images, be responsive
+  return lgAndUp ? 4 : mdAndUp ? 6 : 12;
+});
 </script>
 
 <template>
@@ -177,6 +195,17 @@ const currentInventoryPiece = useInventory();
         <VSheet elevation="3" rounded="lg" class="pa-5">
           <slot />
         </VSheet>
+      </VCol>
+    </VRow>
+
+    <VRow>
+      <VCol
+        v-for="galleryUrl of currentInventoryPiece.galleryUrls"
+        :key="galleryUrl"
+        :cols="galleryCols"
+        height="8rem"
+      >
+        <BlowupImg :src="galleryUrl" class="fill-height" cover />
       </VCol>
     </VRow>
   </template>

@@ -22,7 +22,7 @@ const showDialog = ref(false);
           <VBtn variant="text" icon="mdi-close" @click="showDialog = false" />
         </VCardActions>
         <VCardText>
-          <VImg v-bind="$attrs" :src="imgSrc" style="max-height: 75vh" />
+          <VImg :src="imgSrc" style="max-height: 75vh" />
         </VCardText>
       </VCard>
     </VDialog>
