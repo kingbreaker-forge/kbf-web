@@ -10,7 +10,7 @@ const showDialog = ref(false);
 </script>
 
 <template>
-  <VImg v-bind="$attrs" :src="imgSrc" @click="showDialog = true" />
+  <VImg v-bind="$attrs" :src="imgSrc" class="cursor-pointer" @click="showDialog = true" />
   <VNoSsr>
     <VDialog v-model="showDialog" max-width="85%">
       <VCard>
