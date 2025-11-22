@@ -13,7 +13,7 @@ export default () =>
 
     const { urlPathname } = pageContext;
     console.debug('(useCurrentInventory) ', { urlPathname, inventoryMetas });
-    const pageIdSearch = /^\/inventory\/(\w+)$/.exec(urlPathname);
+    const pageIdSearch = /^\/inventory\/(\w+)\/?/.exec(urlPathname);
     if (!pageIdSearch) {
       throw renderAbort(404, 'Tried to get current inventory at a non-inventory URL', {
         urlPathname,

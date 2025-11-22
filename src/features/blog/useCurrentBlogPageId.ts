@@ -13,7 +13,7 @@ export default () =>
 
     const { urlPathname } = pageContext;
     console.debug('(useCurrentBlogArticle) ', { urlPathname, blogMetas });
-    const pageIdSearch = /^\/blog\/(\w+)$/.exec(urlPathname);
+    const pageIdSearch = /^\/blog\/(\w+)\/?$/.exec(urlPathname);
     if (!pageIdSearch) {
       throw renderAbort(404, 'Tried to get current blog article at a non-blog URL', {
         urlPathname,
