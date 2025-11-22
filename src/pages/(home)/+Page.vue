@@ -10,7 +10,7 @@ const { mdAndUp } = useDisplay();
 const blogMetas = useBlogMetas();
 const latestBlogArticle = blogMetas.sort((a, b) => a.date.getTime() - b.date.getTime())[0];
 
-const showcasedInventory = 'example';
+const showcasedInventory = 'cs-birthday-knife';
 </script>
 
 <template>
