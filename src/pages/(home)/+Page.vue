@@ -36,8 +36,8 @@ const showcasedInventory = 'example';
       <InventoryCard :inventoryPageId="showcasedInventory" />
 
       <div class="mt-4 d-flex justify-center">
-        <VBtn href="/blog" color="primary">
-          <strong>Browse All Pieces</strong>
+        <VBtn href="/inventory" color="primary">
+          <strong>Browse the Inventory</strong>
         </VBtn>
       </div>
     </VCol>
