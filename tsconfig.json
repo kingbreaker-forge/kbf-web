@@ -36,7 +36,7 @@
     "src/**/*.json",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "./*.ts"
+    "./*.ts",
   ],
   "exclude": [
     "dist",

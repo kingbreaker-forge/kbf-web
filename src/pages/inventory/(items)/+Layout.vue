@@ -25,7 +25,7 @@ const galleryCols = computed<number>(() => {
   }
 
   // If 3+ gallery images, be responsive
-  return lgAndUp ? 4 : mdAndUp ? 6 : 12;
+  return lgAndUp.value ? 4 : mdAndUp.value ? 6 : 12;
 });
 </script>
 
@@ -109,16 +109,16 @@ const galleryCols = computed<number>(() => {
                   <VNoSsr>{{ currentInventory.startedDate.toLocaleDateString() }}</VNoSsr>
                 </td>
               </tr>
-              <tr v-if="currentInventory.startedDate">
-                <td>Started Date</td>
+              <tr v-if="currentInventory.completedDate">
+                <td>Completed Date</td>
                 <td>
-                  <VNoSsr>{{ currentInventory.startedDate.toLocaleDateString() }}</VNoSsr>
+                  <VNoSsr>{{ currentInventory.completedDate.toLocaleDateString() }}</VNoSsr>
                 </td>
               </tr>
-              <tr v-if="currentInventory.startedDate">
-                <td>Started Date</td>
+              <tr v-if="currentInventory.soldDate">
+                <td>Sold Date</td>
                 <td>
-                  <VNoSsr>{{ currentInventory.startedDate.toLocaleDateString() }}</VNoSsr>
+                  <VNoSsr>{{ currentInventory.soldDate.toLocaleDateString() }}</VNoSsr>
                 </td>
               </tr>
             </tbody>
