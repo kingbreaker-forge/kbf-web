@@ -1,16 +1,19 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import { useDisplay } from 'vuetify';
 
 import InventoryCard from '@kb-web/components/inventory-card/InventoryCard.vue';
 import useInventoryMetas from '@kb-web/features/inventory/useInventoryMetas';
 
-const inventoryMetas = useInventoryMetas();
+const maybeHiddeninventoryMetas = useInventoryMetas();
+const inventoryMetas = computed(() => maybeHiddeninventoryMetas.filter((it) => !it.hidden));
 
 const { mdAndUp, lgAndUp } = useDisplay();
 
 console.debug(
   '(Inventory +Page) Inventory pieces:',
-  inventoryMetas.map((p) => p.pageId),
+  inventoryMetas.value.map((p) => p.pageId),
 );
 </script>
 
