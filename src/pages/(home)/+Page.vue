@@ -2,12 +2,15 @@
 import { useDisplay } from 'vuetify';
 
 import BlogArticleCard from '@kb-web/components/blog-article-card/BlogArticleCard.vue';
+import InventoryCard from '@kb-web/components/inventory-card/InventoryCard.vue';
 import useBlogMetas from '@kb-web/features/blog/useBlogMetas';
 
 const { mdAndUp } = useDisplay();
 
 const blogMetas = useBlogMetas();
 const latestBlogArticle = blogMetas.sort((a, b) => a.date.getTime() - b.date.getTime())[0];
+
+const showcasedInventory = 'example';
 </script>
 
 <template>
@@ -29,17 +32,8 @@ const latestBlogArticle = blogMetas.sort((a, b) => a.date.getTime() - b.date.get
     </VCol>
     <VCol :cols="mdAndUp ? 6 : 12">
       <p class="text-h4">Showcase</p>
-      <VCard>
-        <VCardTitle density="comfortable">
-          <h3 class="text-h5">Forged Stuff Goes Here</h3>
-        </VCardTitle>
-        <VCardText>
-          <VAlert type="info" color="success" variant="outlined" class="mb-4">
-            This is a placeholder for inventory content. Stay tuned for updates!
-          </VAlert>
-          <VSkeletonLoader type="article" />
-        </VCardText>
-      </VCard>
+
+      <InventoryCard :inventoryPageId="showcasedInventory" />
 
       <div class="mt-4 d-flex justify-center">
         <VBtn href="/blog" color="primary">
