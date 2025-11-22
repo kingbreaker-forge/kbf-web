@@ -95,8 +95,8 @@ const galleryCols = computed<number>(() => {
                 <td v-if="currentInventory.status == 'abandoned'">
                   <VChip color="error">Abandoned</VChip>
                 </td>
-                <td v-if="currentInventory.status == 'wip'">
-                  <VChip color="secondary">WIP</VChip>
+                <td v-if="currentInventory.status == 'stuck'">
+                  <VChip color="secondary">Stuck</VChip>
                 </td>
                 <td v-if="currentInventory.status == 'completed'">
                   <VChip color="success">Completed</VChip>

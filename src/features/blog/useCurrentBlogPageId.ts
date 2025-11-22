@@ -15,17 +15,26 @@ export default () =>
     console.debug('(useCurrentBlogArticle) ', { urlPathname, blogMetas });
     const pageIdSearch = /^\/blog\/([^/]+)\/?$/.exec(urlPathname);
     if (!pageIdSearch) {
-      throw renderAbort(404, 'Tried to get current blog article at a non-blog URL', {
+      console.error('(useCurrentBlogPageId) Tried to get current blog article at a non-blog URL', {
         urlPathname,
       });
+      return '';
+      // throw renderAbort(404, 'Tried to get current blog article at a non-blog URL', {
+      //   urlPathname,
+      // });
     }
 
     const pageId = pageIdSearch[1];
     if (!pageId) {
-      throw renderAbort(500, 'Blog pageId search was successful but had no value', {
+      console.error('(useCurrentBlogPageId) Tried to get current blog article at a non-blog URL', {
         urlPathname,
         pageIdSearch,
       });
+      return '';
+      // throw renderAbort(500, 'Blog pageId search was successful but had no value', {
+      //   urlPathname,
+      //   pageIdSearch,
+      // });
     }
 
     return pageId;
