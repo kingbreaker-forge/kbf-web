@@ -105,15 +105,21 @@ const currentInventory = useCurrentInventory();
 
               <tr v-if="currentInventory.startedDate">
                 <td>Started Date</td>
-                <td>{{ currentInventory.startedDate.toLocaleDateString() }}</td>
+                <td>
+                  <VNoSsr>{{ currentInventory.startedDate.toLocaleDateString() }}</VNoSsr>
+                </td>
               </tr>
               <tr v-if="currentInventory.startedDate">
                 <td>Started Date</td>
-                <td>{{ currentInventory.startedDate.toLocaleDateString() }}</td>
+                <td>
+                  <VNoSsr>{{ currentInventory.startedDate.toLocaleDateString() }}</VNoSsr>
+                </td>
               </tr>
               <tr v-if="currentInventory.startedDate">
                 <td>Started Date</td>
-                <td>{{ currentInventory.startedDate.toLocaleDateString() }}</td>
+                <td>
+                  <VNoSsr>{{ currentInventory.startedDate.toLocaleDateString() }}</VNoSsr>
+                </td>
               </tr>
             </tbody>
 
