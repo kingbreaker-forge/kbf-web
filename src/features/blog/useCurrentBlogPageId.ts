@@ -2,8 +2,6 @@ import { computed } from 'vue';
 
 import { usePageContext } from 'vike-vue/usePageContext';
 
-import { renderAbort } from '@kb-web/features/errors';
-
 import useBlogMetas from './useBlogMetas';
 
 export default () =>
@@ -19,9 +17,6 @@ export default () =>
         urlPathname,
       });
       return '';
-      // throw renderAbort(404, 'Tried to get current blog article at a non-blog URL', {
-      //   urlPathname,
-      // });
     }
 
     const pageId = pageIdSearch[1];
@@ -31,10 +26,6 @@ export default () =>
         pageIdSearch,
       });
       return '';
-      // throw renderAbort(500, 'Blog pageId search was successful but had no value', {
-      //   urlPathname,
-      //   pageIdSearch,
-      // });
     }
 
     return pageId;
