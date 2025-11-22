@@ -14,8 +14,6 @@ interface CustomPageContext extends PageContextClient {
       blog?: BlogArticle;
       inventory?: InventoryPiece;
     };
-    BlogList: BlogArticle[];
-    InventoryPieceList: InventoryPiece[];
   };
 }
 

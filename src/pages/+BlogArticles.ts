@@ -5,10 +5,10 @@ interface MaybeBlogModule {
     blog?: BlogArticle;
   };
 }
-const modules = import.meta.glob('./blog/\\(articles\\)/*/+Page.{vue,md,mdx}', { eager: true });
-console.debug('(+BlogArticles) modules:', Object.keys(modules));
+const metadataModules = import.meta.glob('./blog/\\(articles\\)/*/+Metadata.ts', { eager: true });
+console.debug('(+BlogArticles) metadata modules:', Object.keys(metadataModules));
 
-export default Object.entries(modules)
+export default Object.entries(metadataModules)
   .map(([path, module]) => ({ path, blogArticle: (module as MaybeBlogModule).Metadata?.blog }))
   .filter(({ blogArticle }) => blogArticle !== undefined)
   .map(({ path, blogArticle }) => ({

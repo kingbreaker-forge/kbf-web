@@ -4,31 +4,33 @@ import { computed } from 'vue';
 import { useDisplay } from 'vuetify';
 
 import BlowupImg from '@kb-web/components/BlowupImg.vue';
-import useInventory from '@kb-web/useInventory';
+import useCurrentInventory from '@kb-web/features/inventory/useCurrentInventory';
 
 const { mdAndUp, lgAndUp } = useDisplay();
 
-const currentInventoryPiece = useInventory();
-
 const galleryCols = computed<number>(() => {
   // Special cases for 0, 1, and 2 gallery images
-  if (!currentInventoryPiece.value?.galleryUrls?.length) {
+  if (!currentInventory.value?.galleryUrls?.length) {
     return 12;
   }
-  if (currentInventoryPiece.value?.galleryUrls?.length === 1) {
+  if (currentInventory.value?.galleryUrls?.length === 1) {
     return 12;
   }
-  if (currentInventoryPiece.value?.galleryUrls?.length === 2) {
+  if (currentInventory.value?.galleryUrls?.length === 2) {
     return mdAndUp ? 6 : 12;
   }
 
   // If 3+ gallery images, be responsive
   return lgAndUp ? 4 : mdAndUp ? 6 : 12;
 });
+
+// ---
+
+const currentInventory = useCurrentInventory();
 </script>
 
 <template>
-  <template v-if="!currentInventoryPiece">
+  <template v-if="!currentInventory">
     <VAlert type="error">
       This is an inventory layout but has no inventory piece. This should be impossible. Go play the
       lottery.
@@ -37,15 +39,15 @@ const galleryCols = computed<number>(() => {
   <template v-else>
     <VRow class="title-container">
       <h3 class="text-h3">
-        {{ currentInventoryPiece.name }}
+        {{ currentInventory.name }}
       </h3>
     </VRow>
 
     <VRow>
       <VCol :cols="mdAndUp ? 8 : 12" cols-lg="8">
         <BlowupImg
-          v-if="currentInventoryPiece.coverImageUrl"
-          :src="currentInventoryPiece.coverImageUrl"
+          v-if="currentInventory.coverImageUrl"
+          :src="currentInventory.coverImageUrl"
           width="100%"
         />
         <VSheet
@@ -63,20 +65,20 @@ const galleryCols = computed<number>(() => {
             <tbody>
               <tr>
                 <td>Series</td>
-                <td>{{ currentInventoryPiece.series }}</td>
+                <td>{{ currentInventory.series }}</td>
               </tr>
 
               <tr>
                 <td>Serial Number</td>
                 <td>
-                  <code>{{ currentInventoryPiece.serial }}</code>
+                  <code>{{ currentInventory.serial }}</code>
                 </td>
               </tr>
 
-              <tr v-if="currentInventoryPiece.tags && currentInventoryPiece.tags.length">
+              <tr v-if="currentInventory.tags && currentInventory.tags.length">
                 <td>Tags</td>
                 <td>
-                  <VChip v-for="tag of currentInventoryPiece.tags" :key="tag" variant="outlined">
+                  <VChip v-for="tag of currentInventory.tags" :key="tag" variant="outlined">
                     {{ tag }}
                   </VChip>
                 </td>
@@ -84,105 +86,105 @@ const galleryCols = computed<number>(() => {
 
               <tr>
                 <td>Status</td>
-                <td v-if="currentInventoryPiece.status == 'unknown'">
+                <td v-if="currentInventory.status == 'unknown'">
                   <VChip color="warning">Unknown</VChip>
                 </td>
-                <td v-if="currentInventoryPiece.status == 'wip'">
+                <td v-if="currentInventory.status == 'wip'">
                   <VChip color="info">WIP</VChip>
                 </td>
-                <td v-if="currentInventoryPiece.status == 'abandoned'">
+                <td v-if="currentInventory.status == 'abandoned'">
                   <VChip color="error">Abandoned</VChip>
                 </td>
-                <td v-if="currentInventoryPiece.status == 'wip'">
+                <td v-if="currentInventory.status == 'wip'">
                   <VChip color="secondary">WIP</VChip>
                 </td>
-                <td v-if="currentInventoryPiece.status == 'completed'">
+                <td v-if="currentInventory.status == 'completed'">
                   <VChip color="success">Completed</VChip>
                 </td>
               </tr>
 
-              <tr v-if="currentInventoryPiece.startedDate">
+              <tr v-if="currentInventory.startedDate">
                 <td>Started Date</td>
-                <td>{{ currentInventoryPiece.startedDate.toLocaleDateString() }}</td>
+                <td>{{ currentInventory.startedDate.toLocaleDateString() }}</td>
               </tr>
-              <tr v-if="currentInventoryPiece.startedDate">
+              <tr v-if="currentInventory.startedDate">
                 <td>Started Date</td>
-                <td>{{ currentInventoryPiece.startedDate.toLocaleDateString() }}</td>
+                <td>{{ currentInventory.startedDate.toLocaleDateString() }}</td>
               </tr>
-              <tr v-if="currentInventoryPiece.startedDate">
+              <tr v-if="currentInventory.startedDate">
                 <td>Started Date</td>
-                <td>{{ currentInventoryPiece.startedDate.toLocaleDateString() }}</td>
+                <td>{{ currentInventory.startedDate.toLocaleDateString() }}</td>
               </tr>
             </tbody>
 
             <!-- Blade-specific stuff-->
-            <tbody v-if="currentInventoryPiece.bladeSpecs">
+            <tbody v-if="currentInventory.bladeSpecs">
               <tr>
                 <td><h3 class="text-h5">Blade Specs</h3></td>
                 <td></td>
               </tr>
               <tr>
                 <td>Blade Material</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.bladeMaterial }}</td>
+                <td>{{ currentInventory.bladeSpecs.bladeMaterial }}</td>
               </tr>
               <tr>
                 <td>Handle Material</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.handleMaterial }}</td>
+                <td>{{ currentInventory.bladeSpecs.handleMaterial }}</td>
               </tr>
-              <tr v-if="currentInventoryPiece.bladeSpecs.otherMaterials">
+              <tr v-if="currentInventory.bladeSpecs.otherMaterials">
                 <td>Other Materials</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.otherMaterials }}</td>
+                <td>{{ currentInventory.bladeSpecs.otherMaterials }}</td>
               </tr>
 
               <tr>
                 <td>Construction</td>
-                <td v-if="currentInventoryPiece.bladeSpecs.construction == 'forged-to-shape'">
+                <td v-if="currentInventory.bladeSpecs.construction == 'forged-to-shape'">
                   <VIcon icon="mdi-hammer" /> Forged to Shape
                 </td>
-                <td v-if="currentInventoryPiece.bladeSpecs.construction == 'forged-and-ground'">
+                <td v-if="currentInventory.bladeSpecs.construction == 'forged-and-ground'">
                   <VIcon icon="mdi-knife" /> Forged and Ground
                 </td>
-                <td v-if="currentInventoryPiece.bladeSpecs.construction == 'stock-removal'">
+                <td v-if="currentInventory.bladeSpecs.construction == 'stock-removal'">
                   <VIcon icon="mdi-blender" /> Stock Removal
                 </td>
-                <td v-if="currentInventoryPiece.bladeSpecs.construction == 'other'">
+                <td v-if="currentInventory.bladeSpecs.construction == 'other'">
                   <VIcon icon="mdi-account-hard-hat" /> Other
                 </td>
               </tr>
 
-              <tr v-if="currentInventoryPiece.bladeSpecs.bladeLengthCm">
+              <tr v-if="currentInventory.bladeSpecs.bladeLengthCm">
                 <td>Blade Length</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.bladeLengthCm }} cm</td>
+                <td>{{ currentInventory.bladeSpecs.bladeLengthCm }} cm</td>
               </tr>
 
-              <tr v-if="currentInventoryPiece.bladeSpecs.bladeWidthCm">
+              <tr v-if="currentInventory.bladeSpecs.bladeWidthCm">
                 <td>Blade Width</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.bladeWidthCm }} cm</td>
+                <td>{{ currentInventory.bladeSpecs.bladeWidthCm }} cm</td>
               </tr>
 
-              <tr v-if="currentInventoryPiece.bladeSpecs.handleLengthCm">
+              <tr v-if="currentInventory.bladeSpecs.handleLengthCm">
                 <td>Handle Length</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.handleLengthCm }} cm</td>
+                <td>{{ currentInventory.bladeSpecs.handleLengthCm }} cm</td>
               </tr>
 
-              <tr v-if="currentInventoryPiece.bladeSpecs.overallLengthCm">
+              <tr v-if="currentInventory.bladeSpecs.overallLengthCm">
                 <td>Overall Length</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.overallLengthCm }} cm</td>
+                <td>{{ currentInventory.bladeSpecs.overallLengthCm }} cm</td>
               </tr>
 
-              <tr v-if="currentInventoryPiece.bladeSpecs.massGrams">
+              <tr v-if="currentInventory.bladeSpecs.massGrams">
                 <td>Mass/Weight</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.massGrams }} g</td>
+                <td>{{ currentInventory.bladeSpecs.massGrams }} g</td>
               </tr>
 
-              <tr v-if="currentInventoryPiece.bladeSpecs.quench">
+              <tr v-if="currentInventory.bladeSpecs.quench">
                 <td>Quench</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.quench }}</td>
+                <td>{{ currentInventory.bladeSpecs.quench }}</td>
               </tr>
 
-              <tr v-if="currentInventoryPiece.bladeSpecs.hardnessHrc">
+              <tr v-if="currentInventory.bladeSpecs.hardnessHrc">
                 <td>Hardness</td>
-                <td>{{ currentInventoryPiece.bladeSpecs.hardnessHrc }} (HRC)</td>
+                <td>{{ currentInventory.bladeSpecs.hardnessHrc }} (HRC)</td>
               </tr>
             </tbody>
           </VTable>
@@ -200,7 +202,7 @@ const galleryCols = computed<number>(() => {
 
     <VRow>
       <VCol
-        v-for="galleryUrl of currentInventoryPiece.galleryUrls"
+        v-for="galleryUrl of currentInventory.galleryUrls"
         :key="galleryUrl"
         :cols="galleryCols"
         height="8rem"

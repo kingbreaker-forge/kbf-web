@@ -19,5 +19,8 @@ export default {
     BlogArticles: {
       env: { server: true, client: true },
     },
+    InventoryMetas: {
+      env: { server: true, client: true },
+    },
   },
 } satisfies Config;
