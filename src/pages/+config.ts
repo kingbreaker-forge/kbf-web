@@ -16,7 +16,7 @@ export default {
     Metadata: {
       env: { server: true, client: true },
     },
-    BlogArticles: {
+    BlogMetas: {
       env: { server: true, client: true },
     },
     InventoryMetas: {

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useInventoryPieces } from '@kb-web/useInventory';
+import useInventoryMetas from '@kb-web/features/inventory/useInventoryMetas';
 
-const inventoryPieces = useInventoryPieces();
+const inventoryMetas = useInventoryMetas();
 
 console.debug(
   '(Inventory +Page) Inventory pieces:',
-  inventoryPieces.value.map((p) => p.inventoryId),
+  inventoryMetas.map((p) => p.pageId),
 );
 </script>
 

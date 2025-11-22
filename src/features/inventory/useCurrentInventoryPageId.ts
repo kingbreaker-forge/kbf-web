@@ -28,10 +28,5 @@ export default () =>
       });
     }
 
-    const foundInventory = inventoryMetas.find((it) => it.pageId == pageId);
-    if (!foundInventory) {
-      throw renderAbort(404, 'Inventory not found', { pageId });
-    }
-
-    return foundInventory;
+    return pageId;
   });

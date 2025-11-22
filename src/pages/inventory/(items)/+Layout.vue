@@ -4,9 +4,13 @@ import { computed } from 'vue';
 import { useDisplay } from 'vuetify';
 
 import BlowupImg from '@kb-web/components/BlowupImg.vue';
-import useCurrentInventory from '@kb-web/features/inventory/useCurrentInventory';
+import useCurrentInventoryPageId from '@kb-web/features/inventory/useCurrentInventoryPageId';
+import useInventory from '@kb-web/features/inventory/useInventory';
 
 const { mdAndUp, lgAndUp } = useDisplay();
+
+const currentInventoryPageId = useCurrentInventoryPageId();
+const currentInventory = useInventory(currentInventoryPageId);
 
 const galleryCols = computed<number>(() => {
   // Special cases for 0, 1, and 2 gallery images
@@ -23,10 +27,6 @@ const galleryCols = computed<number>(() => {
   // If 3+ gallery images, be responsive
   return lgAndUp ? 4 : mdAndUp ? 6 : 12;
 });
-
-// ---
-
-const currentInventory = useCurrentInventory();
 </script>
 
 <template>

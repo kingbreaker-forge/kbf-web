@@ -1,17 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-
 import { useDisplay } from 'vuetify';
 
 import BlogArticleCard from '@kb-web/components/blog-article-card/BlogArticleCard.vue';
-import { useBlogArticles } from '@kb-web/useBlog';
+import useBlogMetas from '@kb-web/features/blog/useBlogMetas';
 
 const { mdAndUp } = useDisplay();
 
-const blogArticles = useBlogArticles();
-const latestBlogArticle = computed(
-  () => blogArticles.value.sort((a, b) => a.date.getTime() - b.date.getTime())[0],
-);
+const blogMetas = useBlogMetas();
+const latestBlogArticle = blogMetas.sort((a, b) => a.date.getTime() - b.date.getTime())[0];
 </script>
 
 <template>
@@ -24,7 +20,7 @@ const latestBlogArticle = computed(
   <VRow>
     <VCol :cols="mdAndUp ? 6 : 12">
       <p class="text-h4">Latest News</p>
-      <BlogArticleCard :articleId="latestBlogArticle.id || 'ID-MISSING'" />
+      <BlogArticleCard :articleId="latestBlogArticle.pageId || 'ID-MISSING'" />
       <div class="mt-4 d-flex justify-center">
         <VBtn href="/blog" color="primary">
           <strong>Read More Articles</strong>

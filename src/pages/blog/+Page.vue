@@ -1,16 +1,15 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import { useDisplay } from 'vuetify';
 
 import BlogArticleCard from '@kb-web/components/blog-article-card/BlogArticleCard.vue';
-import { useBlogArticles } from '@kb-web/useBlog';
+import useBlogMetas from '@kb-web/features/blog/useBlogMetas';
 
-const blogArticles = useBlogArticles();
 const { mdAndUp } = useDisplay();
 
-console.log(
-  'Blog articles:',
-  blogArticles.value.map((a) => a.id),
-);
+const blogMetas = useBlogMetas();
+const articleIds = computed(() => blogMetas.map((it) => it.pageId));
 </script>
 
 <template>
@@ -21,8 +20,8 @@ console.log(
   </VRow>
 
   <VRow>
-    <VCol v-for="article of blogArticles" :key="article.id" :cols="mdAndUp ? '6' : '12'">
-      <BlogArticleCard :articleId="article.id || 'ID-MISSING'" />
+    <VCol v-for="articleId of articleIds" :key="articleId" :cols="mdAndUp ? '6' : '12'">
+      <BlogArticleCard :articleId="articleId" />
     </VCol>
   </VRow>
 </template>

@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { useBlogArticles } from '@kb-web/useBlog';
+import useBlogArticle from '@kb-web/features/blog/useBlogArticle';
 
 import DefaultCoverImage from './default-cover.jpg';
 
 const props = defineProps<{ articleId: string }>();
-const blogArticles = useBlogArticles();
 
-const article = blogArticles.value.find((a) => a.id === props.articleId);
+const article = useBlogArticle(props.articleId);
 </script>
 
 <template>
-  <VCard v-if="article" :href="`/blog/${article.id}`" density="comfortable">
+  <VCard v-if="article" :href="`/blog/${article.pageId}`" density="comfortable">
     <VCardTitle>
       <h3 class="text-h5">{{ article.title }}</h3>
     </VCardTitle>

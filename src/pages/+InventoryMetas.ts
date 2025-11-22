@@ -1,5 +1,5 @@
-import { Inventory } from '@kb-web/features/inventory/types';
-import { SupportsWithPageId } from '@kb-web/features/pageMeta';
+import type { Inventory } from '@kb-web/features/inventory/types';
+import type { SupportsWithPageId } from '@kb-web/features/pageMeta';
 
 const collectInventoryMetas = () => {
   const imports = import.meta.glob<{ default: Inventory & SupportsWithPageId }>(
