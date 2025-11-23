@@ -64,11 +64,6 @@ const galleryCols = computed<number>(() => {
           <VTable>
             <tbody>
               <tr>
-                <td>Series</td>
-                <td>{{ currentInventory.series }}</td>
-              </tr>
-
-              <tr>
                 <td>Serial Number</td>
                 <td>
                   <code>{{ currentInventory.serial }}</code>
