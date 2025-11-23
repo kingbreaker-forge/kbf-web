@@ -49,12 +49,14 @@ const galleryCols = computed<number>(() => {
           v-if="currentInventory.coverImageUrl"
           :src="currentInventory.coverImageUrl"
           width="100%"
+          max-height="90vh"
         />
         <VSheet
           v-else
           elevation="3"
           min-height="5rem"
           class="border d-flex justify-center align-center fill-height"
+          max-height="90vh"
         >
           Image missing
         </VSheet>
