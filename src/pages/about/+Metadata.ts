@@ -1,7 +1,4 @@
-import HalloweenForging from './halloween-forging.jpg';
-
 export default {
-  pageBackground: HalloweenForging,
   htmlMeta: {
     title: 'About Kingbreaker Forge',
     description:

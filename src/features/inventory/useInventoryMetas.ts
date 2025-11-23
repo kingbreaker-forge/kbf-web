@@ -1,8 +1,7 @@
 import { usePageContext } from 'vike-vue/usePageContext';
 import { PageContext } from 'vike/types';
 
-import { SupportsPageId } from '@kb-web/features/pageMeta';
-
+import { SupportsPageId } from '../pageMeta';
 import { Inventory } from './types';
 
 type PageContext_WithInventory = PageContext & {

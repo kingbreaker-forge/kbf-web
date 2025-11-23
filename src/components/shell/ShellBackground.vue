@@ -2,11 +2,10 @@
 import { computed } from 'vue';
 
 import { useWindowScroll } from '@vueuse/core';
+import { useData } from 'vike-vue/useData';
 import { VParallax } from 'vuetify/components';
 
-import usePageBackground from '@kb-web/usePageBackground';
-
-const pageBackground = usePageBackground();
+import { useDynamicBackground } from '@kb-web/features/data';
 
 const { y: windowScrollY } = useWindowScroll();
 const backdropBlurStyle = computed(() => {
@@ -15,10 +14,12 @@ const backdropBlurStyle = computed(() => {
     backdropFilter: `blur(${blurAmount}px)`,
   };
 });
+
+const backgroundUrl = useDynamicBackground();
 </script>
 
 <template>
-  <VParallax class="parallax" :src="pageBackground" :scale="0.5">
+  <VParallax class="parallax" :src="backgroundUrl" :scale="0.5">
     <div class="fill-height parallax-mask" :style="backdropBlurStyle" />
   </VParallax>
 </template>

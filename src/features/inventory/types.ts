@@ -1,4 +1,4 @@
-import { definePageMeta } from '@kb-web/features/pageMeta';
+import { definePageMeta } from '../pageMeta';
 
 export interface Inventory {
   hidden?: boolean;

@@ -1,7 +1,7 @@
 import { usePageContext } from 'vike-vue/usePageContext';
 import { PageContext } from 'vike/types';
 
-import { SupportsPageId } from '@kb-web/features/pageMeta';
+import { SupportsPageId } from '@kb-web/features/data/pageMeta';
 
 import { BlogArticle } from './types';
 

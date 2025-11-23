@@ -16,6 +16,9 @@ export default {
     Metadata: {
       env: { server: true, client: true },
     },
+    PageBackground: {
+      env: { server: true, client: true },
+    },
     BlogMetas: {
       env: { server: true, client: true },
     },
