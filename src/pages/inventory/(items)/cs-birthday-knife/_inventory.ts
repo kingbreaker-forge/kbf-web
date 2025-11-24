@@ -2,7 +2,7 @@ import { Inventory } from '@/features/inventory/types';
 
 export default {
   name: 'C.S. Birthday Knife',
-  serial: 'KB-001',
+  serial: 'KB-0001',
   series: 'blade',
   status: 'completed',
   summary:
