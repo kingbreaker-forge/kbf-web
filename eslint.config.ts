@@ -17,7 +17,7 @@ const compat = new FlatCompat();
 export default [
   // Base
   {
-    ignores: ['dist/', 'coverage/', '.vitepress/cache/', 'node_modules/'],
+    ignores: ['dist/', 'coverage/', '.vitepress/cache/', 'node_modules/', 'src/useHtmlMeta.ts'],
   },
 
   // JS defaults
@@ -54,7 +54,12 @@ export default [
       // imports + TS
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      'import/no-relative-parent-imports': 'error',
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: ['../*', '../**/*'],
+        },
+      ],
     },
     settings: {
       'import/resolver': {

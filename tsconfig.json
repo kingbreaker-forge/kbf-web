@@ -26,11 +26,13 @@
         "./src/*"
       ]
     },
+    "allowArbitraryExtensions": true,
   },
   "include": [
-    "./**/*.ts",
-    "./**/*.vue",
-    "./**/*.json",
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "src/**/*.json",
+    "*.ts",
   ],
   "exclude": [
     "dist",
