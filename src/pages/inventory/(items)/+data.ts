@@ -15,14 +15,7 @@ export default (pageContext: PageContext) => {
   }
   const inv = inventoryDatabase.getSlug(slug);
 
-  console.log(`(Inventory +data) inventory data for ${slug}`, inv);
-
-  const data = {
-    ...defineDynamicBackgroundData(inv.backgroundImageUrl || null), // Default background here
-    ...defineInventoryHtmlMetadata(inv),
-  };
-
-  console.log('===========', data);
+  console.debug(`(Inventory +data) inventory data for ${slug}`, inv);
 
   return {
     ...defineDynamicBackgroundData(inv.backgroundImageUrl || null), // Default background here

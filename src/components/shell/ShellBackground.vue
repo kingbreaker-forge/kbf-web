@@ -15,10 +15,6 @@ const backdropBlurStyle = computed(() => {
 });
 
 const backgroundUrl = useDynamicBackground();
-
-console.log('======= SHELL BACKGROUND ============');
-console.log('original background', backgroundUrl);
-watchEffect(() => console.log('new background', backgroundUrl));
 </script>
 
 <template>
