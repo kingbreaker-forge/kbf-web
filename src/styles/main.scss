@@ -1,6 +1,9 @@
-@use '@fontsource/cinzel';
-@use '@fontsource/alegreya';
-// @use '@fontsource/roboto';
+// Limit font downloads to the Latin subsets and weights we actually use.
+@use '@fontsource/alegreya/latin-400.css' as *;
+@use '@fontsource/alegreya/latin-700.css' as *;
+@use '@fontsource/cinzel/latin-400.css' as *;
+@use '@fontsource/cinzel/latin-700.css' as *;
+@use '@fontsource/cinzel/latin-900.css' as *;
 
 @forward 'vuetify/settings' with (
   $font-size-root: 1.1rem,

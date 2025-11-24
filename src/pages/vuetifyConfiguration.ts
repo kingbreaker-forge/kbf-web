@@ -1,6 +1,5 @@
-import '@mdi/font/css/materialdesignicons.css';
 import { type VuetifyOptions } from 'vuetify';
-import { aliases, mdi } from 'vuetify/iconsets/mdi';
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg';
 
 import BrokenCycleSVG from '@/components/broken-cycle/BrokenCycleSVG.vue';
 

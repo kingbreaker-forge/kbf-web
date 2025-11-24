@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 
+import { mdiClose, mdiOpenInNew } from '@mdi/js';
 import { VCard, VImg, VNoSsr } from 'vuetify/components';
 
 const props = defineProps<{ src: string }>();
@@ -17,9 +18,9 @@ const showDialog = ref(false);
         <VCardActions>
           <VBtn variant="elevated" color="secondary" :href="imgSrc" target="_blank">
             Open in New Window
-            <VIcon icon="mdi-open-in-new" />
+            <VIcon :icon="mdiOpenInNew" />
           </VBtn>
-          <VBtn variant="text" icon="mdi-close" @click="showDialog = false" />
+          <VBtn variant="text" :icon="mdiClose" @click="showDialog = false" />
         </VCardActions>
         <VCardText>
           <VImg :src="imgSrc" style="max-height: 75vh" />

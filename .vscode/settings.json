@@ -48,6 +48,7 @@
   },
   // MDX extension: enable language features
   "mdx.experimentalLanguageService": true,
+
   // Stylelint (optional, only if you add Stylelint config below)
   "stylelint.validate": [
     "css",
@@ -67,7 +68,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "json.format.keepLines": true,
-  "jsonc.format.keepLines": true,
+
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },

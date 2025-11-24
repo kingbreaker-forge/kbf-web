@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import { mdiAccountHardHat, mdiBlender, mdiHammer, mdiKnife } from '@mdi/js';
 import { useDisplay } from 'vuetify';
 
 import BlowupImg from '@/components/BlowupImg.vue';
@@ -148,16 +149,16 @@ const galleryCols = computed<number>(() => {
               <tr>
                 <td>Construction</td>
                 <td v-if="currentInventory.bladeSpecs.construction == 'forged-to-shape'">
-                  <VIcon icon="mdi-hammer" /> Forged to Shape
+                  <VIcon :icon="mdiHammer" /> Forged to Shape
                 </td>
                 <td v-if="currentInventory.bladeSpecs.construction == 'forged-and-ground'">
-                  <VIcon icon="mdi-knife" /> Forged and Ground
+                  <VIcon :icon="mdiKnife" /> Forged and Ground
                 </td>
                 <td v-if="currentInventory.bladeSpecs.construction == 'stock-removal'">
-                  <VIcon icon="mdi-blender" /> Stock Removal
+                  <VIcon :icon="mdiBlender" /> Stock Removal
                 </td>
                 <td v-if="currentInventory.bladeSpecs.construction == 'other'">
-                  <VIcon icon="mdi-account-hard-hat" /> Other
+                  <VIcon :icon="mdiAccountHardHat" /> Other
                 </td>
               </tr>
 

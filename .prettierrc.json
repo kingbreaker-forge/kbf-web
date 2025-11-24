@@ -9,7 +9,7 @@
   "importOrder": [
     "^(vue|react)$",
     "<THIRD_PARTY_MODULES>",
-    "@kb-web/(.*)$",
+    "@/(.*)$",
     "^@/(.*)$",
     "^[./]"
   ],
