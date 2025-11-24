@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 
+import { mdiCart, mdiInformation, mdiKnife, mdiNotebook, mdiWallet } from '@mdi/js';
 import { useDisplay } from 'vuetify';
 
 import BrokenCycleSVG from '@/components/broken-cycle/BrokenCycleSVG.vue';
@@ -15,7 +16,7 @@ const setLogoHovered = (hovered: boolean) => {
 };
 
 const appBarTitleClasses = computed(() =>
-  mdAndUp.value ? ['d-flex', 'justify-center', 'text-h4'] : [],
+  mdAndUp.value ? ['d-flex', 'justify-center', 'text-h4'] : ['text-h5'],
 );
 
 const mobileMenuOpen = ref<boolean>(false);
@@ -54,6 +55,7 @@ const mobileMenuOpen = ref<boolean>(false);
           <VBtn variant="text" href="/about">About</VBtn>
           <VBtn variant="text" href="/blog">Blog</VBtn>
           <VBtn variant="text" href="/inventory">Inventory</VBtn>
+          <VBtn variant="text" href="/buy">Buy</VBtn>
         </div>
       </template>
     </VAppBar>
@@ -66,9 +68,30 @@ const mobileMenuOpen = ref<boolean>(false);
       color="surface"
     >
       <VList>
-        <VListItem link href="/about" @click="mobileMenuOpen = false">About</VListItem>
-        <VListItem link href="/blog" @click="mobileMenuOpen = false">Blog</VListItem>
-        <VListItem link href="/inventory" @click="mobileMenuOpen = false">Inventory</VListItem>
+        <VListItem link href="/about" @click="mobileMenuOpen = false">
+          <template #prepend>
+            <VIcon :icon="mdiInformation" />
+          </template>
+          <VListItemTitle class="text-h6"> About </VListItemTitle>
+        </VListItem>
+        <VListItem link href="/blog" @click="mobileMenuOpen = false">
+          <template #prepend>
+            <VIcon :icon="mdiNotebook" />
+          </template>
+          <VListItemTitle class="text-h6"> Blog </VListItemTitle>
+        </VListItem>
+        <VListItem link href="/inventory" @click="mobileMenuOpen = false">
+          <template #prepend>
+            <VIcon :icon="mdiKnife" />
+          </template>
+          <VListItemTitle class="text-h6"> Inventory </VListItemTitle>
+        </VListItem>
+        <VListItem link href="/buy" @click="mobileMenuOpen = false">
+          <template #prepend>
+            <VIcon :icon="mdiCart" />
+          </template>
+          <VListItemTitle class="text-h6"> Buy </VListItemTitle>
+        </VListItem>
       </VList>
     </VNavigationDrawer>
 

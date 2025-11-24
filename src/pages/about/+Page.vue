@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { VImg, VSheet } from 'vuetify/components';
 
+import ContactCard from '@/components/ContactCard.vue';
+
 import HalloweenForging from './halloween-forging.jpg';
 </script>
 
@@ -33,6 +35,11 @@ import HalloweenForging from './halloween-forging.jpg';
 
         <h2 class="text-h4">Where</h2>
         <p>Kingbreaker Forge is based in a backyard in the suburbs of Manassas, Virginia, USA.</p>
+
+        <h2 class="text-h4">Contact</h2>
+        <div class="d-flex justify-center">
+          <ContactCard />
+        </div>
       </VSheet>
     </VCol>
     <VCol>
@@ -40,3 +47,11 @@ import HalloweenForging from './halloween-forging.jpg';
     </VCol>
   </VRow>
 </template>
+
+<style scoped>
+h2,
+p {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+</style>
