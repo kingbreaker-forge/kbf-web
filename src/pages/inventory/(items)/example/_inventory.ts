@@ -4,7 +4,6 @@ export default {
   serial: 'X-000',
   hidden: true,
 
-  series: 'blade',
   name: 'Harborline Petty',
   status: 'completed',
   summary:

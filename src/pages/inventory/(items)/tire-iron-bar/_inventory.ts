@@ -3,7 +3,6 @@ import { Inventory } from '@/features/inventory/types';
 export default {
   name: 'Tire Iron Bar Knife',
   serial: 'X-002',
-  series: 'experiment',
   status: 'wip',
   summary: 'When life gives you tire irons, you make knives.',
   tags: [],

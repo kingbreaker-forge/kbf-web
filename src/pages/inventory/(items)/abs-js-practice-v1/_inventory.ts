@@ -3,7 +3,6 @@ import { Inventory } from '@/features/inventory/types';
 export default {
   name: 'ABS JS Practice Ver 1',
   serial: 'X-003',
-  series: 'blade',
   status: 'wip',
   summary:
     'Practicing the craft by using the ABS Journeyman Smith test as a benchmark. 5160 spring steel, basic knife.',

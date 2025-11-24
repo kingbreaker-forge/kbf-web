@@ -2,7 +2,6 @@ export interface Inventory {
   hidden?: boolean;
 
   serial: string;
-  series: 'experiment' | 'tool' | 'blade' | 'other';
   name: string;
   summary: string;
 

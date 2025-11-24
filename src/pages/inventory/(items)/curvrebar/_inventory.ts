@@ -3,7 +3,6 @@ import { Inventory } from '@/features/inventory/types';
 export default {
   name: 'Curvrebar',
   serial: 'X-004',
-  series: 'blade',
   status: 'completed',
   summary: 'Curvy fantasy-ish knife. Experimental/stylish only - made of rebar.',
   tags: [],

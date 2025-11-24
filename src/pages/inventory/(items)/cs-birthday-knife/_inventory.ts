@@ -3,7 +3,6 @@ import { Inventory } from '@/features/inventory/types';
 export default {
   name: 'C.S. Birthday Knife',
   serial: 'KB-0001',
-  series: 'blade',
   status: 'completed',
   summary:
     'Small everyday pocketknife, custom-engraved for the birthday recipient. 80CrV2 blade, mango handle.',
