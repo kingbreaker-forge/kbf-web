@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 
 import { useDisplay } from 'vuetify';
 
-import BrokenCycleSVG from '@kb-web/components/broken-cycle/BrokenCycleSVG.vue';
+import BrokenCycleSVG from '@/components/broken-cycle/BrokenCycleSVG.vue';
 
 import ShellBackground from './ShellBackground.vue';
 

@@ -2,7 +2,7 @@ import '@mdi/font/css/materialdesignicons.css';
 import { type VuetifyOptions } from 'vuetify';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 
-import BrokenCycleSVG from '@kb-web/components/broken-cycle/BrokenCycleSVG.vue';
+import BrokenCycleSVG from '@/components/broken-cycle/BrokenCycleSVG.vue';
 
 export default {
   ssr: true,

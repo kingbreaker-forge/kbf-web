@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useDisplay } from 'vuetify';
 
-import InventoryCard from '@kb-web/components/inventory-card/InventoryCard.vue';
-import { inventoryDatabase } from '@kb-web/inventoryDatabase';
+import InventoryCard from '@/components/inventory-card/InventoryCard.vue';
+import { inventoryDatabase } from '@/inventoryDatabase';
 
 const shownInventorySlugs = inventoryDatabase
   .items()

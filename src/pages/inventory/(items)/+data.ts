@@ -2,9 +2,9 @@ import { toValue } from 'vue';
 
 import { PageContext } from 'vike/types';
 
-import { defineDynamicBackgroundData } from '@kb-web/features/dynamicBackground';
-import { defineInventoryHtmlMetadata, useInventorySlug } from '@kb-web/features/inventory';
-import { inventoryDatabase } from '@kb-web/inventoryDatabase';
+import { defineDynamicBackgroundData } from '@/features/dynamicBackground';
+import { defineInventoryHtmlMetadata, useInventorySlug } from '@/features/inventory';
+import { inventoryDatabase } from '@/inventoryDatabase';
 
 class InventoryDataError extends Error {}
 

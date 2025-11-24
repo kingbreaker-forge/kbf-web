@@ -1,7 +1,7 @@
 import { MaybeRefOrGetter, toValue } from 'vue';
 
-import DefaultCoverImage from '@kb-web/assets/default-cover.jpg';
-import { defineHtmlMetadata } from '@kb-web/features/htmlMetadata';
+import DefaultCoverImage from '@/assets/default-cover.jpg';
+import { defineHtmlMetadata } from '@/features/htmlMetadata';
 
 import { BlogArticle } from './types';
 

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import FaviconSVG from '@kb-web/assets/favicon/favicon.svg';
-import FaviconPNG16 from '@kb-web/assets/favicon/gen/favicon-16.png';
-import FaviconPNG32 from '@kb-web/assets/favicon/gen/favicon-32.png';
-import FaviconPNG48 from '@kb-web/assets/favicon/gen/favicon-48.png';
-import FaviconPNG64 from '@kb-web/assets/favicon/gen/favicon-64.png';
-import FaviconPNG128 from '@kb-web/assets/favicon/gen/favicon-128.png';
-import FaviconPNG256 from '@kb-web/assets/favicon/gen/favicon-256.png';
-import FaviconPNG512 from '@kb-web/assets/favicon/gen/favicon-512.png';
-import FaviconICO from '@kb-web/assets/favicon/gen/favicon.ico';
+import FaviconSVG from '@/assets/favicon/favicon.svg';
+import FaviconPNG16 from '@/assets/favicon/gen/favicon-16.png';
+import FaviconPNG32 from '@/assets/favicon/gen/favicon-32.png';
+import FaviconPNG48 from '@/assets/favicon/gen/favicon-48.png';
+import FaviconPNG64 from '@/assets/favicon/gen/favicon-64.png';
+import FaviconPNG128 from '@/assets/favicon/gen/favicon-128.png';
+import FaviconPNG256 from '@/assets/favicon/gen/favicon-256.png';
+import FaviconPNG512 from '@/assets/favicon/gen/favicon-512.png';
+import FaviconICO from '@/assets/favicon/gen/favicon.ico';
 </script>
 
 <template>

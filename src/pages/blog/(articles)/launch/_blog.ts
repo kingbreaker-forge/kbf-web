@@ -1,4 +1,4 @@
-import { defineBlogMeta } from '@kb-web/features/blog/types';
+import { defineBlogMeta } from '@/features/blog/types';
 
 export default defineBlogMeta({
   title: 'Website Launch',

@@ -2,7 +2,7 @@ import { computed } from 'vue';
 
 import { useData } from 'vike-vue/useData';
 
-import KingBreakerBackground from '@kb-web/assets/kingbreaker-background.jpg';
+import KingBreakerBackground from '@/assets/kingbreaker-background.jpg';
 
 const DynamicBackgroundSymbol = 'DynamicBackground';
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useDisplay } from 'vuetify';
 
-import { blogDatabase } from '@kb-web/blogDatabase';
-import BlogArticleCard from '@kb-web/components/blog-article-card/BlogArticleCard.vue';
-import InventoryCard from '@kb-web/components/inventory-card/InventoryCard.vue';
+import { blogDatabase } from '@/blogDatabase';
+import BlogArticleCard from '@/components/blog-article-card/BlogArticleCard.vue';
+import InventoryCard from '@/components/inventory-card/InventoryCard.vue';
 
 const { mdAndUp } = useDisplay();
 

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { blogDatabase } from '@kb-web/blogDatabase';
-import { useBlogSlug } from '@kb-web/features/blog';
+import { blogDatabase } from '@/blogDatabase';
+import { useBlogSlug } from '@/features/blog';
 
 const blogSlug = useBlogSlug();
 

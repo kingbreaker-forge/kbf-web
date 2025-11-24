@@ -4,7 +4,7 @@ import { computed, watchEffect } from 'vue';
 import { useWindowScroll } from '@vueuse/core';
 import { VParallax } from 'vuetify/components';
 
-import { useDynamicBackground } from '@kb-web/features/dynamicBackground';
+import { useDynamicBackground } from '@/features/dynamicBackground';
 
 const { y: windowScrollY } = useWindowScroll();
 const backdropBlurStyle = computed(() => {

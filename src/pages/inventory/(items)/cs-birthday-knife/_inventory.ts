@@ -1,4 +1,4 @@
-import { Inventory } from '@kb-web/features/inventory/types';
+import { Inventory } from '@/features/inventory/types';
 
 export default {
   name: 'C.S. Birthday Knife',

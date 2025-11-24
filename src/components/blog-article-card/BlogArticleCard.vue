@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { blogDatabase } from '@kb-web/blogDatabase';
+import { blogDatabase } from '@/blogDatabase';
 
 import DefaultCoverImage from './default-cover.jpg';
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BlowupImg from '@kb-web/components/BlowupImg.vue';
+import BlowupImg from '@/components/BlowupImg.vue';
 
 const props = defineProps<{ src: string }>();
 </script>

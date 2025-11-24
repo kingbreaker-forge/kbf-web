@@ -1,6 +1,6 @@
 import { MaybeRefOrGetter, toValue } from 'vue';
 
-import { defineHtmlMetadata } from '@kb-web/features/htmlMetadata';
+import { defineHtmlMetadata } from '@/features/htmlMetadata';
 
 import { Inventory } from './types';
 

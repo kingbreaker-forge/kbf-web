@@ -1,4 +1,4 @@
-import { definePageMeta } from '@kb-web/features/pageMeta';
+import { definePageMeta } from '@/features/pageMeta';
 
 export interface BlogArticle {
   title: string;

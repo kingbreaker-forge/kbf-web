@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { type UseMetadataParams } from 'vike-metadata-vue';
 import { useData } from 'vike-vue/useData';
 
-import Favicon from '@kb-web/assets/favicon/gen/favicon-512.png';
+import Favicon from '@/assets/favicon/gen/favicon-512.png';
 
 type HtmlMetadata = UseMetadataParams;
 

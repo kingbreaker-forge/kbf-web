@@ -3,10 +3,10 @@ import { computed } from 'vue';
 
 import { useDisplay } from 'vuetify';
 
-import BlowupImg from '@kb-web/components/BlowupImg.vue';
-import { renderAbort } from '@kb-web/features/errors';
-import { useInventorySlug } from '@kb-web/features/inventory';
-import { inventoryDatabase } from '@kb-web/inventoryDatabase';
+import BlowupImg from '@/components/BlowupImg.vue';
+import { renderAbort } from '@/features/errors';
+import { useInventorySlug } from '@/features/inventory';
+import { inventoryDatabase } from '@/inventoryDatabase';
 
 const { mdAndUp, lgAndUp } = useDisplay();
 

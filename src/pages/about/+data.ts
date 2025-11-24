@@ -1,5 +1,5 @@
-import { defineDynamicBackgroundData } from '@kb-web/features/dynamicBackground';
-import { defineHtmlMetadata } from '@kb-web/features/htmlMetadata';
+import { defineDynamicBackgroundData } from '@/features/dynamicBackground';
+import { defineHtmlMetadata } from '@/features/htmlMetadata';
 
 import HalloweenForging from './halloween-forging.jpg';
 

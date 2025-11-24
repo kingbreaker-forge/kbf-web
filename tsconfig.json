@@ -22,7 +22,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@kb-web/*": [
+      "@/*": [
         "./src/*"
       ]
     },

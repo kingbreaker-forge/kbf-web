@@ -27,7 +27,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@kb-web': '/src',
+      '@': '/src',
     },
   },
   ssr: {
