@@ -1,3 +1,5 @@
+import { toValue } from 'vue';
+
 import { PageContext } from 'vike/types';
 
 import { defineDynamicBackgroundData } from '@kb-web/features/dynamicBackground';
@@ -7,7 +9,7 @@ import { inventoryDatabase } from '@kb-web/inventoryDatabase';
 class InventoryDataError extends Error {}
 
 export default (pageContext: PageContext) => {
-  const slug = useInventorySlug(pageContext);
+  const slug = toValue(useInventorySlug(pageContext));
   if (!slug) {
     throw new InventoryDataError(`No slug found in page context`);
   }

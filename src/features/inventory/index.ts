@@ -1,4 +1,3 @@
-export { useInventorySlug } from './useInventorySlug';
-export { defineInventoryHtmlMetadata } from './defineInventoryHtmlMetadata';
-
+export * from './useInventorySlug';
+export * from './defineInventoryHtmlMetadata';
 export * from './types';

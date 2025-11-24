@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import useBlogArticle from '@kb-web/features/blog/useBlogArticle';
+import { computed } from 'vue';
+
+import { blogDatabase } from '@kb-web/blogDatabase';
 
 import DefaultCoverImage from './default-cover.jpg';
 
-const props = defineProps<{ articleId: string }>();
+const props = defineProps<{ slug: string }>();
 
-const article = useBlogArticle(props.articleId);
+const article = computed(() => blogDatabase.getSlug(props.slug));
 </script>
 
 <template>
-  <VCard v-if="article" :href="`/blog/${article.pageId}`" density="comfortable">
+  <VCard v-if="article" :href="`/blog/${article.slug}`" density="comfortable">
     <VCardTitle>
       <h3 class="text-h5">{{ article.title }}</h3>
     </VCardTitle>

@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import useBlogArticle from '@kb-web/features/blog/useBlogArticle';
-import useCurrentBlogArticlePageId from '@kb-web/features/blog/useCurrentBlogPageId';
+import { computed } from 'vue';
 
-const blogArticlePageId = useCurrentBlogArticlePageId();
-const blogArticle = useBlogArticle(blogArticlePageId);
+import { blogDatabase } from '@kb-web/blogDatabase';
+import { useBlogSlug } from '@kb-web/features/blog';
+
+const blogSlug = useBlogSlug();
+
+const blogArticle = computed(() => blogDatabase.getSlug(blogSlug.value));
 </script>
 
 <template>

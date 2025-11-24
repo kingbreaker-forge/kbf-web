@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import DefaultCoverImage from '@kb-web/assets/default-cover.jpg';
 import { renderAbort } from '@kb-web/features/errors';
 import { inventoryDatabase } from '@kb-web/inventoryDatabase';
-
-import DefaultCoverImage from './default-cover.jpg';
 
 const props = defineProps<{ slug: string }>();
 

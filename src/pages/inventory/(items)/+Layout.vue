@@ -15,7 +15,7 @@ const currentInventory = computed(() => {
   if (!inventorySlug) {
     throw renderAbort(404, `No inventory slug in page URL`);
   }
-  return inventoryDatabase.getSlug(inventorySlug);
+  return inventoryDatabase.getSlug(inventorySlug.value);
 });
 
 const galleryCols = computed<number>(() => {

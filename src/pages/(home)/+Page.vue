@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { useDisplay } from 'vuetify';
 
+import { blogDatabase } from '@kb-web/blogDatabase';
 import BlogArticleCard from '@kb-web/components/blog-article-card/BlogArticleCard.vue';
 import InventoryCard from '@kb-web/components/inventory-card/InventoryCard.vue';
-import useBlogMetas from '@kb-web/features/blog/useBlogMetas';
 
 const { mdAndUp } = useDisplay();
 
-const blogMetas = useBlogMetas();
-const latestBlogArticle = blogMetas.sort((a, b) => a.date.getTime() - b.date.getTime())[0];
+const latestBlogArticle = blogDatabase
+  .items()
+  .toArray()
+  .sort((x, y) => x.date.getTime() - y.date.getTime())[0];
 
 const showcasedInventory = 'cs-birthday-knife';
 </script>
@@ -23,7 +25,7 @@ const showcasedInventory = 'cs-birthday-knife';
   <VRow>
     <VCol :cols="mdAndUp ? 6 : 12">
       <p class="text-h4">Latest News</p>
-      <BlogArticleCard :articleId="latestBlogArticle.pageId || 'ID-MISSING'" />
+      <BlogArticleCard :slug="latestBlogArticle.slug || 'ID-MISSING'" />
       <div class="mt-4 d-flex justify-center">
         <VBtn href="/blog" color="primary">
           <strong>Read More Articles</strong>
