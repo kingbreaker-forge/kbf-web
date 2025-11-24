@@ -2,6 +2,10 @@
   // Use workspace TypeScript for IntelliSense everywhere (incl. Volar Take Over)
   "typescript.tsdk": "node_modules/typescript/lib",
 
+  // Import path preferences: keep siblings relative, otherwise let alias/baseUrl kick in
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "javascript.preferences.importModuleSpecifier": "shortest",
+
   // Formatting
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
