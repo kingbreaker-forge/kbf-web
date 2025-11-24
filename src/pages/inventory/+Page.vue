@@ -7,7 +7,8 @@ import { inventoryDatabase } from '@kb-web/inventoryDatabase';
 const shownInventorySlugs = inventoryDatabase
   .items()
   .filter((it) => !it.hidden)
-  .map((it) => it.slug);
+  .map((it) => it.slug)
+  .toArray();
 
 const { mdAndUp, lgAndUp } = useDisplay();
 
