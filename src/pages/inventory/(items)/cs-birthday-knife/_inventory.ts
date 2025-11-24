@@ -1,6 +1,6 @@
-import { defineInventoryMeta } from '@kb-web/features/inventory/types';
+import { Inventory } from '@kb-web/features/inventory/types';
 
-export default defineInventoryMeta({
+export default {
   name: 'C.S. Birthday Knife',
   serial: 'KB-001',
   series: 'blade',
@@ -31,4 +31,4 @@ export default defineInventoryMeta({
     hardnessHrc: 65,
     quench: 'Canola oil',
   },
-});
+} satisfies Inventory;

@@ -1,6 +1,6 @@
-import { defineInventoryMeta } from '@kb-web/features/inventory/types';
+import { Inventory } from '@kb-web/features/inventory/types';
 
-export default defineInventoryMeta({
+export default {
   serial: 'X-000',
   hidden: true,
 
@@ -39,4 +39,4 @@ export default defineInventoryMeta({
     quench: 'Parks 50',
     hardnessHrc: 61,
   },
-});
+} satisfies Inventory;

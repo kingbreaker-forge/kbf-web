@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, watchEffect } from 'vue';
 
 import { useWindowScroll } from '@vueuse/core';
-import { useData } from 'vike-vue/useData';
 import { VParallax } from 'vuetify/components';
 
-import { useDynamicBackground } from '@kb-web/features/data';
+import { useDynamicBackground } from '@kb-web/features/dynamicBackground';
 
 const { y: windowScrollY } = useWindowScroll();
 const backdropBlurStyle = computed(() => {
@@ -16,6 +15,10 @@ const backdropBlurStyle = computed(() => {
 });
 
 const backgroundUrl = useDynamicBackground();
+
+console.log('======= SHELL BACKGROUND ============');
+console.log('original background', backgroundUrl);
+watchEffect(() => console.log('new background', backgroundUrl));
 </script>
 
 <template>

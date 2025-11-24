@@ -1,6 +1,6 @@
-import { defineInventoryMeta } from '@kb-web/features/inventory/types';
+import { Inventory } from '@kb-web/features/inventory/types';
 
-export default defineInventoryMeta({
+export default {
   name: 'Tire Iron Bar Knife',
   serial: 'X-002',
   series: 'experiment',
@@ -30,4 +30,4 @@ export default defineInventoryMeta({
     // hardnessHrc: 55,
     // quench: 'Canola oil',
   },
-});
+} satisfies Inventory;

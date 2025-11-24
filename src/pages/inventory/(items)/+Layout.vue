@@ -4,13 +4,19 @@ import { computed } from 'vue';
 import { useDisplay } from 'vuetify';
 
 import BlowupImg from '@kb-web/components/BlowupImg.vue';
-import useCurrentInventoryPageId from '@kb-web/features/inventory/useCurrentInventoryPageId';
-import useInventory from '@kb-web/features/inventory/useInventory';
+import { renderAbort } from '@kb-web/features/errors';
+import { useInventorySlug } from '@kb-web/features/inventory';
+import { inventoryDatabase } from '@kb-web/inventoryDatabase';
 
 const { mdAndUp, lgAndUp } = useDisplay();
 
-const currentInventoryPageId = useCurrentInventoryPageId();
-const currentInventory = useInventory(currentInventoryPageId);
+const inventorySlug = useInventorySlug();
+const currentInventory = computed(() => {
+  if (!inventorySlug) {
+    throw renderAbort(404, `No inventory slug in page URL`);
+  }
+  return inventoryDatabase.getSlug(inventorySlug);
+});
 
 const galleryCols = computed<number>(() => {
   // Special cases for 0, 1, and 2 gallery images

@@ -1,5 +1,3 @@
-import { definePageMeta } from '../pageMeta';
-
 export interface Inventory {
   hidden?: boolean;
 
@@ -41,5 +39,3 @@ export interface BladeSpecs {
   quench?: string;
   hardnessHrc?: number;
 }
-
-export const defineInventoryMeta = (values: Inventory) => definePageMeta(values);

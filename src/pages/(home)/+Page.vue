@@ -33,7 +33,7 @@ const showcasedInventory = 'cs-birthday-knife';
     <VCol :cols="mdAndUp ? 6 : 12">
       <p class="text-h4">Showcase</p>
 
-      <InventoryCard :inventoryPageId="showcasedInventory" />
+      <InventoryCard :slug="showcasedInventory" />
 
       <div class="mt-4 d-flex justify-center">
         <VBtn href="/inventory" color="primary">

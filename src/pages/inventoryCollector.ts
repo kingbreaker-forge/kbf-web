@@ -1,13 +1,13 @@
 import type { Inventory } from '@kb-web/features/inventory/types';
 import type { SupportsWithPageId } from '@kb-web/features/pageMeta';
 
-const collectInventoryMetas = () => {
+export const collectInventoryItems = () => {
   const imports = import.meta.glob<{ default: Inventory & SupportsWithPageId }>(
     './inventory/\\(items\\)/*/_inventory.ts',
     { eager: true },
   );
 
-  console.debug('(+InventoryMetas) Collecting metas: ', Object.keys(imports).length);
+  console.debug('(inventoryCollector) Collecting metas: ', Object.keys(imports).length);
 
   const inventoriesWithIds = Object.entries(imports).map(([key, value]) => {
     const keyPathParts = key.split('/');
@@ -15,11 +15,11 @@ const collectInventoryMetas = () => {
     const pageId = keyPathParts[itemsIndex + 1];
 
     const inventoryMeta = value.default;
-    console.debug(`(+InventoryMetas) Found meta (${key})`, inventoryMeta);
+    console.debug(`(inventoryCollector) Found meta (${key})`, inventoryMeta);
     return inventoryMeta.withPageId(pageId);
   });
-  console.debug(`(+InventoryMetas)`, { inventoriesWithIds });
+  console.debug(`(inventoryCollector)`, { inventoriesWithIds });
   return inventoriesWithIds;
 };
 
-export default collectInventoryMetas();
+export default collectInventoryItems();

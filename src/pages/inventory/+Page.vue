@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-
 import { useDisplay } from 'vuetify';
 
 import InventoryCard from '@kb-web/components/inventory-card/InventoryCard.vue';
-import useInventoryMetas from '@kb-web/features/inventory/useInventoryMetas';
+import { inventoryDatabase } from '@kb-web/inventoryDatabase';
 
-const maybeHiddeninventoryMetas = useInventoryMetas();
-const inventoryMetas = computed(() => maybeHiddeninventoryMetas.filter((it) => !it.hidden));
+const shownInventorySlugs = inventoryDatabase
+  .items()
+  .filter((it) => !it.hidden)
+  .map((it) => it.slug);
 
 const { mdAndUp, lgAndUp } = useDisplay();
 
-console.debug(
-  '(Inventory +Page) Inventory pieces:',
-  inventoryMetas.value.map((p) => p.pageId),
-);
+console.debug('(Inventory +Page) Inventory slugs:', shownInventorySlugs);
 </script>
 
 <template>
@@ -25,12 +22,8 @@ console.debug(
   </VRow>
 
   <VRow>
-    <VCol
-      v-for="inventory of inventoryMetas"
-      :key="inventory.pageId"
-      :cols="lgAndUp ? 4 : mdAndUp ? 6 : 12"
-    >
-      <InventoryCard :inventoryPageId="inventory.pageId" />
+    <VCol v-for="slug of shownInventorySlugs" :key="slug" :cols="lgAndUp ? 4 : mdAndUp ? 6 : 12">
+      <InventoryCard :slug="slug" />
     </VCol>
   </VRow>
 </template>

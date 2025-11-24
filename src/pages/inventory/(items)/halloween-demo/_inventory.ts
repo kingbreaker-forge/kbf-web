@@ -1,6 +1,6 @@
-import { defineInventoryMeta } from '@kb-web/features/inventory/types';
+import { Inventory } from '@kb-web/features/inventory/types';
 
-export default defineInventoryMeta({
+export default {
   name: 'Halloween Demo Blade',
   serial: 'X-001',
   series: 'experiment',
@@ -32,4 +32,4 @@ export default defineInventoryMeta({
     hardnessHrc: 55,
     quench: 'Canola oil',
   },
-});
+} satisfies Inventory;

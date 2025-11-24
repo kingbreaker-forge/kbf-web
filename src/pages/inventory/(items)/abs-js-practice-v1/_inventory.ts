@@ -1,6 +1,6 @@
-import { defineInventoryMeta } from '@kb-web/features/inventory/types';
+import { Inventory } from '@kb-web/features/inventory/types';
 
-export default defineInventoryMeta({
+export default {
   name: 'ABS JS Practice Ver 1',
   serial: 'X-003',
   series: 'blade',
@@ -29,4 +29,4 @@ export default defineInventoryMeta({
     overallLengthCm: 27,
   },
   tags: [],
-});
+} satisfies Inventory;

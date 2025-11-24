@@ -12,18 +12,5 @@ export default {
 
   extends: [vikeVue],
 
-  meta: {
-    Metadata: {
-      env: { server: true, client: true },
-    },
-    PageBackground: {
-      env: { server: true, client: true },
-    },
-    BlogMetas: {
-      env: { server: true, client: true },
-    },
-    InventoryMetas: {
-      env: { server: true, client: true },
-    },
-  },
+  meta: {},
 } satisfies Config;
