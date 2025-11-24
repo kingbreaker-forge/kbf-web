@@ -31,7 +31,10 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.vue",
-    "src/**/*.json",
+    "[blog]/**/*.ts",
+    "[blog]/**/*.vue",
+    "[inventory]/**/*.ts",
+    "[inventory]/**/*.vue",
     "*.ts",
   ],
   "exclude": [
