@@ -8,6 +8,8 @@ export default {
   summary: 'Curvy fantasy-ish knife. Experimental/stylish only - made of rebar.',
   tags: [],
 
+  availableForSale: true,
+
   startedDate: new Date('2025-11-01'),
   completedDate: new Date('2025-11-02'),
 

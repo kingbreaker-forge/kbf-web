@@ -198,6 +198,9 @@ const galleryCols = computed<number>(() => {
               </tr>
             </tbody>
           </VTable>
+          <div v-if="currentInventory.availableForSale" class="pa-4 d-flex justify-center">
+            <VBtn href="/buy" variant="tonal" color="secondary">Want it?</VBtn>
+          </div>
         </VSheet>
       </VCol>
     </VRow>
