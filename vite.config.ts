@@ -1,6 +1,7 @@
 import mdx from '@mdx-js/rollup';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 import remarkGfm from 'remark-gfm';
 import vike from 'vike/plugin';
 import { defineConfig } from 'vite';
@@ -19,6 +20,9 @@ export default defineConfig({
       providerImportSource: '@mdx-js/vue',
       jsxImportSource: 'vue',
       remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+        rehypeUnwrapImages, // Image unwrap is necessary for MDX images to not explode due to MDX putting them in a <p>
+      ],
     }),
     svg(),
   ],

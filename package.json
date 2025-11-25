@@ -52,6 +52,7 @@
     "postcss-html": "^1.8.0",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.6.2",
+    "rehype-unwrap-images": "^1.0.0",
     "sass-embedded": "^1.93.3",
     "stylelint": "^16.25.0",
     "stylelint-config-recommended": "^17.0.0",

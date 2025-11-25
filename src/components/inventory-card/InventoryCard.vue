@@ -32,6 +32,7 @@ if (!inv) {
     <VCardText>
       <p class="text-body-2">
         <code>{{ inv.serial }}</code>
+        &mdash;
         {{ inv.summary }}
       </p>
       <VCardSubtitle v-if="inv.tags.length" class="d-flex justify-end">

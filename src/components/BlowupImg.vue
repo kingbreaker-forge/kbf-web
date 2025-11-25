@@ -12,20 +12,18 @@ const showDialog = ref(false);
 
 <template>
   <VImg v-bind="$attrs" :src="imgSrc" class="cursor-pointer" @click="showDialog = true" />
-  <VNoSsr>
-    <VDialog v-model="showDialog" max-width="85%">
-      <VCard>
-        <VCardActions>
-          <VBtn variant="elevated" color="secondary" :href="imgSrc" target="_blank">
-            Open in New Window
-            <VIcon :icon="mdiOpenInNew" />
-          </VBtn>
-          <VBtn variant="text" :icon="mdiClose" @click="showDialog = false" />
-        </VCardActions>
-        <VCardText>
-          <VImg :src="imgSrc" style="max-height: 75vh" />
-        </VCardText>
-      </VCard>
-    </VDialog>
-  </VNoSsr>
+  <VDialog v-model="showDialog" max-width="85%">
+    <VCard>
+      <VCardActions>
+        <VBtn variant="elevated" color="secondary" :href="imgSrc" target="_blank">
+          Open in New Window
+          <VIcon :icon="mdiOpenInNew" />
+        </VBtn>
+        <VBtn variant="text" :icon="mdiClose" @click="showDialog = false" />
+      </VCardActions>
+      <VCardText>
+        <VImg :src="imgSrc" style="max-height: 75vh" />
+      </VCardText>
+    </VCard>
+  </VDialog>
 </template>
