@@ -17,25 +17,26 @@ if (!inv) {
 </script>
 
 <template>
-  <VCard :href="`/inventory/${inv!.slug}`" density="comfortable">
+  <VCard :href="`/inventory/${inv.slug}`" density="comfortable">
     <VCardTitle>
-      <h3 class="text-h5">{{ inv!.name }}</h3>
+      <h3 class="text-h5">{{ inv.name }}</h3>
     </VCardTitle>
-    <VImg cover :src="inv?.coverImageUrl || DefaultCoverImage" :alt="inv!.name" height="12em">
+    <VImg cover :src="inv?.coverImageUrl || DefaultCoverImage" :alt="inv.name" height="12em">
       <template #placeholder>
         <VSkeletonLoader type="image" height="12em" />
       </template>
       <template #error>
-        <VImg cover :src="DefaultCoverImage" :alt="inv!.name" height="12em" />
+        <VImg cover :src="DefaultCoverImage" :alt="inv.name" height="12em" />
       </template>
     </VImg>
     <VCardText>
       <p class="text-body-2">
-        {{ inv!.summary }}
+        <code>{{ inv.serial }}</code>
+        {{ inv.summary }}
       </p>
-      <VCardSubtitle v-if="inv!.tags.length" class="d-flex justify-end">
+      <VCardSubtitle v-if="inv.tags.length" class="d-flex justify-end">
         <span class="text-subtitle-2">
-          <VChip v-for="tag of inv!.tags" color="secondary">{{ tag }}</VChip>
+          <VChip v-for="tag of inv.tags" color="secondary">{{ tag }}</VChip>
         </span>
       </VCardSubtitle>
     </VCardText>
