@@ -10,7 +10,7 @@ const { mdAndUp } = useDisplay();
 const latestBlogArticle = blogDatabase
   .items()
   .toArray()
-  .sort((x, y) => x.date.getTime() - y.date.getTime())[0];
+  .sort((x, y) => y.date.getTime() - x.date.getTime())[0];
 
 const showcasedInventory = 'cs-birthday-knife';
 </script>

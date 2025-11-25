@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 
-import { mdiCart, mdiInformation, mdiKnife, mdiNotebook, mdiWallet } from '@mdi/js';
+import { mdiCart, mdiInformation, mdiKnife, mdiNotebook } from '@mdi/js';
 import { useDisplay } from 'vuetify';
 
 import BrokenCycleSVG from '@/components/broken-cycle/BrokenCycleSVG.vue';

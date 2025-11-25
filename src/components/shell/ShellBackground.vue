@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watchEffect } from 'vue';
+import { computed } from 'vue';
 
 import { useWindowScroll } from '@vueuse/core';
 import { VParallax } from 'vuetify/components';

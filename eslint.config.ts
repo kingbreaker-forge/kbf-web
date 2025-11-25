@@ -35,23 +35,21 @@ export default [
   ...tseslint.configs.recommendedTypeChecked.map((c) => ({
     ...c,
     files: ['**/*.ts', '**/*.tsx', '**/*.vue'],
-  })),
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.vue'],
     languageOptions: {
+      parser: tseslint.parser,
       parserOptions: {
         project: ['./tsconfig.json'],
+        sourceType: 'module',
         tsconfigRootDir: import.meta.dirname,
         ecmaVersion: 2023,
-        sourceType: 'module',
       },
       globals: {
         ...globals.browser,
         ...globals.node,
       },
     },
+
     rules: {
-      // imports + TS
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'no-restricted-imports': [
@@ -66,7 +64,7 @@ export default [
         typescript: true,
       },
     },
-  },
+  })),
 
   // Vue (SFC script + template via vue-eslint-parser)
   {

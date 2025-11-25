@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onErrorCaptured } from 'vue';
+import { computed } from 'vue';
 
 import { blogDatabase } from '@/blogDatabase';
 import { useBlogSlug } from '@/features/blog';

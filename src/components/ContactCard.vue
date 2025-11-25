@@ -2,9 +2,6 @@
 import { reactive, ref } from 'vue';
 
 import { mdiEmail, mdiPhone, mdiWhatsapp } from '@mdi/js';
-import { useDisplay } from 'vuetify';
-
-const { mdAndUp } = useDisplay();
 
 const phoneNumberBase64 = 'KzEtNTcxLTM1NC04MDg4Cg==';
 const emailAddressBase64 = 'ZmlsaXBAa2luZ2JyZWFrZXJmb3JnZS5jb20K';

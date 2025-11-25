@@ -8,8 +8,8 @@
     "sourceMap": true,
     "noEmit": true,
     "module": "ESNext",
-    "target": "ES2022",
-    "moduleResolution": "Bundler",
+    "target": "es6",
+    "moduleResolution": "bundler",
     "lib": [
       "DOM",
       "DOM.Iterable",

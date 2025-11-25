@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // This component adds mappings for MDX elements to Vuetify components
-import { type Component, onErrorCaptured } from 'vue';
+import { type Component } from 'vue';
 
 import { MDXProvider } from '@mdx-js/vue';
 

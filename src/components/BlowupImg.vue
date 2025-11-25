@@ -2,7 +2,6 @@
 import { computed, ref } from 'vue';
 
 import { mdiClose, mdiOpenInNew } from '@mdi/js';
-import { VCard, VImg, VNoSsr } from 'vuetify/components';
 
 const props = defineProps<{ src: string }>();
 const imgSrc = computed(() => props.src);
