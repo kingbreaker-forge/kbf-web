@@ -8,6 +8,7 @@ import BlowupImg from '@/components/BlowupImg.vue';
 import { renderAbort } from '@/features/errors';
 import { useInventorySlug } from '@/features/inventory';
 import { inventoryDatabase } from '@/inventoryDatabase';
+import VuetifyMDXProvider from '@/mdx-compat/VuetifyMDXProvider.vue';
 
 const { mdAndUp, lgAndUp } = useDisplay();
 
@@ -208,7 +209,9 @@ const galleryCols = computed<number>(() => {
     <VRow>
       <VCol cols="12">
         <VSheet elevation="3" rounded="lg" class="pa-5">
-          <slot />
+          <VuetifyMDXProvider>
+            <slot />
+          </VuetifyMDXProvider>
         </VSheet>
       </VCol>
     </VRow>

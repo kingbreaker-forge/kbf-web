@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onErrorCaptured } from 'vue';
 
 import { blogDatabase } from '@/blogDatabase';
 import { useBlogSlug } from '@/features/blog';
+import VuetifyMDXProvider from '@/mdx-compat/VuetifyMDXProvider.vue';
 
 const blogSlug = useBlogSlug();
 
@@ -21,7 +22,9 @@ const blogArticle = computed(() => blogDatabase.getSlug(blogSlug.value));
     </div>
   </div>
   <VSheet elevation="3" rounded="lg" class="pa-5">
-    <slot />
+    <VuetifyMDXProvider>
+      <slot />
+    </VuetifyMDXProvider>
   </VSheet>
 </template>
 

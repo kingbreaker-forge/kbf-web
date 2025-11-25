@@ -12,9 +12,7 @@ useMetadata(meta.value);
 </script>
 
 <template>
-  <VuetifyMDXProvider>
-    <ApplicationShell>
-      <slot />
-    </ApplicationShell>
-  </VuetifyMDXProvider>
+  <ApplicationShell>
+    <slot />
+  </ApplicationShell>
 </template>
