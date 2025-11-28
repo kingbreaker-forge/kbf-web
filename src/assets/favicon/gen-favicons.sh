@@ -15,11 +15,16 @@ if [ ! -f "$SVG_FILE" ]; then
   exit 1
 fi
 
+GEN_DIR="$SCRIPT_DIR/gen"
+if [ ! -d "$GEN_DIR" ]; then
+  echo "Creating generation directory: $GEN_DIR"
+  mkdir -p "$GEN_DIR"
+fi
 
 echo "Generating PNGs:"
 PNG_PATHS=""
 for SIZE in 16 32 48 64 128 256 512; do
-  PNG_FILE="$SCRIPT_DIR/gen/favicon-$SIZE.png"
+  PNG_FILE="$GEN_DIR/favicon-$SIZE.png"
 
   (
     if [ -n "$DEBUG" ]; then
