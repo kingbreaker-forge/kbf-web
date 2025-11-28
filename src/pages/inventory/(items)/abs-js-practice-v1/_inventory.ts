@@ -13,6 +13,13 @@ export default {
     'https://assets.kingbreakerforge.com/inventory/abs-js-tester/material.jpg',
     'https://assets.kingbreakerforge.com/inventory/abs-js-tester/in-forge.jpg',
     'https://assets.kingbreakerforge.com/inventory/abs-js-tester-v1/billet.jpg',
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/forged.jpg',
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/measured.jpg',
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/ground.jpg',
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/heat-treated.jpg',
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/spine1.jpg',
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/spine2.jpg',
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/flex.jpg',
   ],
 
   startedDate: new Date('2025-11-22'),
