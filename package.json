@@ -9,7 +9,7 @@
     "format": "prettier --write .",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json",
     "terraform-publish": "cd terraform && terraform init && terraform apply",
-    "ci": "npm run lint && npm run typecheck && npm run build && npm run terraform-publish"
+    "full-publish": "npm run lint && npm run typecheck && npm run build && npm run terraform-publish"
   },
   "dependencies": {
     "@fontsource/alegreya": "^5.2.8",
