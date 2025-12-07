@@ -7,8 +7,9 @@ export default {
   summary:
     'Practicing the craft by using the ABS Journeyman Smith test as a benchmark. 5160 spring steel, basic knife.',
 
-  backgroundImageUrl: 'https://assets.kingbreakerforge.com/inventory/abs-js-tester/in-forge.jpg',
-  coverImageUrl: 'https://assets.kingbreakerforge.com/inventory/abs-js-tester/in-forge.jpg',
+  backgroundImageUrl:
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/handheld.jpg',
+  coverImageUrl: 'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/handheld.jpg',
   galleryUrls: [
     'https://assets.kingbreakerforge.com/inventory/abs-js-tester/material.jpg',
     'https://assets.kingbreakerforge.com/inventory/abs-js-tester/in-forge.jpg',
@@ -20,13 +21,16 @@ export default {
     'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/spine1.jpg',
     'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/spine2.jpg',
     'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/flex.jpg',
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/complete.jpg',
+    'https://assets.kingbreakerforge.com/inventory/abs-js-practice-v1/handheld.jpg',
   ],
 
   startedDate: new Date('2025-11-22'),
+  completedDate: new Date('2025-12-01'),
 
   bladeSpecs: {
     bladeMaterial: 'Reclaimed truck coil spring (5160 alloy?)',
-    handleMaterial: 'Pine lumber (planned)',
+    handleMaterial: 'Nylon rope',
     construction: 'forged-to-shape',
 
     bladeLengthCm: 23,
